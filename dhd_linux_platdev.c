@@ -50,7 +50,7 @@ extern struct resource dhd_wlan_resources;
 extern struct wifi_platform_data dhd_wlan_control;
 #else
 static bool dts_enabled = FALSE;
-struct resource dhd_wlan_resources = { 0 };
+extern struct resource dhd_wlan_resources;
 extern struct wifi_platform_data dhd_wlan_control;
 #endif /* !defind(DHD_OF_SUPPORT) */
 #endif /* !defind(CONFIG_DTS) */
