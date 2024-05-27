@@ -208,6 +208,11 @@ int dhd_wlan_init_gpio(void)
 	}
 
 #ifdef CUSTOMER_OOB
+	if (gpio_request(gpio_wl_host_wake, "oob irq")) {
+		printf("%s: Faiiled to request gpio %d for OOB_IRQ\n",
+			__FUNCTION__, gpio_wl_host_wake);
+		gpio_wl_host_wake = -1;
+	}
 	host_oob_irq = gpio_to_irq(gpio_wl_host_wake);
 	printf("%s: host_oob_irq: %d\n", __FUNCTION__, host_oob_irq);
 
