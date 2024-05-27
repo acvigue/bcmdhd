@@ -2389,23 +2389,23 @@ dhd_conf_preinit(dhd_pub_t* dhd)
 	conf->mimo_bw_cap = -1;
 	conf->bw_cap_2g = -1;
 	conf->bw_cap_5g = -1;
-	if (conf->chip == BCM43362_CHIP_ID || conf->chip == BCM4330_CHIP_ID) {
-		strcpy(conf->cspec.country_abbrev, "ALL");
-		strcpy(conf->cspec.ccode, "ALL");
-		conf->cspec.rev = 0;
+	if (conf->chip == BCM43362_CHIP_ID || conf->chip == BCM4330_CHIP_ID || conf->chip == BCM43430_CHIP_ID) {
+		strcpy(conf->cspec.country_abbrev, "US");
+		strcpy(conf->cspec.ccode, "US");
+		conf->cspec.rev = 69;
 	}
 	else if (conf->chip == BCM4335_CHIP_ID || conf->chip == BCM4339_CHIP_ID ||
 		conf->chip == BCM4354_CHIP_ID || conf->chip == BCM4356_CHIP_ID ||
 		conf->chip == BCM4345_CHIP_ID || conf->chip == BCM4371_CHIP_ID ||
 		conf->chip == BCM4359_CHIP_ID) {
-		strcpy(conf->cspec.country_abbrev, "CN");
-		strcpy(conf->cspec.ccode, "CN");
-		conf->cspec.rev = 38;
+		strcpy(conf->cspec.country_abbrev, "US");
+		strcpy(conf->cspec.ccode, "US");
+		conf->cspec.rev = 69;
 	}
 	else {
-		strcpy(conf->cspec.country_abbrev, "CN");
-		strcpy(conf->cspec.ccode, "CN");
-		conf->cspec.rev = 0;
+		strcpy(conf->cspec.country_abbrev, "US");
+		strcpy(conf->cspec.ccode, "US");
+		conf->cspec.rev = 69;
 	}
 	memset(&conf->channels, 0, sizeof(wl_channel_list_t));
 	conf->roam_off = 1;
@@ -2471,7 +2471,7 @@ dhd_conf_preinit(dhd_pub_t* dhd)
 	conf->pm2_sleep_ret = -1;
 	conf->num_different_channels = -1;
 #ifdef DHDTCPACK_SUPPRESS
-	conf->tcpack_sup_mode = TCPACK_SUP_OFF;
+	conf->tcpack_sup_mode = TCPACK_SUP_REPLACE;
 #endif
 	conf->pktprio8021x = -1;
 	conf->rsdb_mode = -2;

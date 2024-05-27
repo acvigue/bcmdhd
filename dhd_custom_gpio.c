@@ -33,9 +33,6 @@ extern int sdioh_mmc_irq(int irq);
 /* Customer specific Host GPIO defintion  */
 static int dhd_oob_gpio_num = -1;
 
-module_param(dhd_oob_gpio_num, int, 0644);
-MODULE_PARM_DESC(dhd_oob_gpio_num, "DHD oob gpio number");
-
 /* This function will return:
  *  1) return :  Host gpio interrupt number per customer platform
  *  2) irq_flags_ptr : Type of Host interrupt as Level or Edge
