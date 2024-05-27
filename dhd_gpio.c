@@ -130,13 +130,13 @@ static int dhd_wlan_get_mac_addr(unsigned char* buf)
 	int err = 0;
 
 	printf("======== %s ========\n", __FUNCTION__);
-#ifdef EXAMPLE_GET_MAC
-	/* EXAMPLE code */
+	printf("chat can we get thy mac address???\n");
+
 	{
-		struct ether_addr ea_example = { {0x00, 0x11, 0x22, 0x33, 0x44, 0xFF} };
+		//FIXME: HARDCODED MAC
+		struct ether_addr ea_example = { {0x8C, 0x85, 0x80, 0xA7, 0x7D, 0xFA} };
 		bcopy((char*)&ea_example, buf, sizeof(struct ether_addr));
 	}
-#endif /* EXAMPLE_GET_MAC */
 
 	return err;
 }

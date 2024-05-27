@@ -2387,28 +2387,24 @@ dhd_conf_preinit(dhd_pub_t* dhd)
 	memset(&conf->country_list, 0, sizeof(conf_country_list_t));
 	conf->band = WLC_BAND_AUTO;
 	conf->mimo_bw_cap = -1;
-	conf->bw_cap_2g = -1;
-	conf->bw_cap_5g = -1;
-	if (conf->chip == BCM43362_CHIP_ID || conf->chip == BCM4330_CHIP_ID || conf->chip == BCM43430_CHIP_ID) {
-		strcpy(conf->cspec.country_abbrev, "US");
-		strcpy(conf->cspec.ccode, "US");
-		conf->cspec.rev = 69;
-	}
-	else if (conf->chip == BCM4335_CHIP_ID || conf->chip == BCM4339_CHIP_ID ||
+	conf->bw_cap_2g = 7;
+	conf->bw_cap_5g = 7;
+	if (conf->chip == BCM43362_CHIP_ID || conf->chip == BCM4330_CHIP_ID ||
+		conf->chip == BCM43430_CHIP_ID || conf->chip == BCM4335_CHIP_ID ||
 		conf->chip == BCM4354_CHIP_ID || conf->chip == BCM4356_CHIP_ID ||
 		conf->chip == BCM4345_CHIP_ID || conf->chip == BCM4371_CHIP_ID ||
-		conf->chip == BCM4359_CHIP_ID) {
+		conf->chip == BCM4359_CHIP_ID || conf->chip == BCM4339_CHIP_ID) {
 		strcpy(conf->cspec.country_abbrev, "US");
 		strcpy(conf->cspec.ccode, "US");
-		conf->cspec.rev = 69;
+		conf->cspec.rev = 0;
 	}
 	else {
-		strcpy(conf->cspec.country_abbrev, "US");
-		strcpy(conf->cspec.ccode, "US");
-		conf->cspec.rev = 69;
+		strcpy(conf->cspec.country_abbrev, "");
+		strcpy(conf->cspec.ccode, "");
+		conf->cspec.rev = 0;
 	}
 	memset(&conf->channels, 0, sizeof(wl_channel_list_t));
-	conf->roam_off = 1;
+	conf->roam_off = 0;
 	conf->roam_off_suspend = 1;
 #ifdef CUSTOM_ROAM_TRIGGER_SETTING
 	conf->roam_trigger[0] = CUSTOM_ROAM_TRIGGER_SETTING;
