@@ -9,7 +9,7 @@
 #ifndef	_BCMDEVS_H
 #define	_BCMDEVS_H
 
-/* PCI vendor IDs */
+ /* PCI vendor IDs */
 #define	VENDOR_EPIGRAM		0xfeda
 #define	VENDOR_BROADCOM		0x14e4
 #define	VENDOR_3COM		0x10b7
@@ -499,11 +499,11 @@
 #define BFL_GAINBOOSTA01        0x20000000  /* 5g Gainboost for core0 and core1 */
 #define BFL_LO_TRSW_R_5GHz	0x40000000  /* In 5G do not throw TRSW to T for clipLO gain */
 #define BFL_ELNA_GAINDEF	0x80000000  /* Backoff InitGain based on elna_2g/5g field
-					     * when this flag is set
-					     */
+						 * when this flag is set
+						 */
 #define BFL_EXTLNA_TX	0x20000000	/* Temp boardflag to indicate to */
 
-/* boardflags2 */
+						 /* boardflags2 */
 #define BFL2_RXBB_INT_REG_DIS	0x00000001  /* Board has an external rxbb regulator */
 #define BFL2_APLL_WAR		0x00000002  /* Flag to implement alternative A-band PLL settings */
 #define BFL2_TXPWRCTRL_EN	0x00000004  /* Board permits enabling TX Power Control */
@@ -513,8 +513,8 @@
 #define BFL2_CAESERS_BRD	0x00000040  /* Board is Caesers brd (unused by sw) */
 #define BFL2_BTC3WIRE		0x00000080  /* Board support legacy 3 wire or 4 wire */
 #define BFL2_BTCLEGACY          0x00000080  /* Board support legacy 3/4 wire, to replace
-					     * BFL2_BTC3WIRE
-					     */
+						 * BFL2_BTC3WIRE
+						 */
 #define BFL2_SKWRKFEM_BRD	0x00000100  /* 4321mcm93 board uses Skyworks FEM */
 #define BFL2_SPUR_WAR		0x00000200  /* Board has a WAR for clock-harmonic spurs */
 #define BFL2_GPLL_WAR		0x00000400  /* Flag to narrow G-band PLL loop b/w */
@@ -529,22 +529,22 @@
 #define BFL2_IPALVLSHIFT_3P3    0x00020000
 #define BFL2_INTERNDET_TXIQCAL  0x00040000  /* Use internal envelope detector for TX IQCAL */
 #define BFL2_XTALBUFOUTEN       0x00080000  /* Keep the buffered Xtal output from radio on */
-				/* Most drivers will turn it off without this flag */
-				/* to save power. */
+						 /* Most drivers will turn it off without this flag */
+						 /* to save power. */
 
 #define BFL2_ANAPACTRL_2G	0x00100000  /* 2G ext PAs are controlled by analog PA ctrl lines */
 #define BFL2_ANAPACTRL_5G	0x00200000  /* 5G ext PAs are controlled by analog PA ctrl lines */
 #define BFL2_ELNACTRL_TRSW_2G	0x00400000  /* AZW4329: 2G gmode_elna_gain controls TR Switch */
 #define BFL2_BT_SHARE_ANT0	0x00800000  /* share core0 antenna with BT */
 #define BFL2_TEMPSENSE_HIGHER	0x01000000  /* The tempsense threshold can sustain higher value
-					     * than programmed. The exact delta is decided by
-					     * driver per chip/boardtype. This can be used
-					     * when tempsense qualification happens after shipment
-					     */
+						 * than programmed. The exact delta is decided by
+						 * driver per chip/boardtype. This can be used
+						 * when tempsense qualification happens after shipment
+						 */
 #define BFL2_BTC3WIREONLY       0x02000000  /* standard 3 wire btc only.  4 wire not supported */
 #define BFL2_PWR_NOMINAL	0x04000000  /* 0: power reduction on, 1: no power reduction */
 #define BFL2_EXTLNA_PWRSAVE	0x08000000  /* boardflag to enable ucode to apply power save */
-						/* ucode control of eLNA during Tx */
+						 /* ucode control of eLNA during Tx */
 #define BFL2_4313_RADIOREG	0x10000000
 									   /*  board rework */
 #define BFL2_DYNAMIC_VMID	0x10000000  /* enable dynamic Vmid in idle TSSI CAL for 4331 */
