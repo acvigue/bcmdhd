@@ -56,6 +56,7 @@ uint config_msg_level = CONFIG_ERROR_LEVEL;
 #define BCM43438A1_CONF_NAME "config_43438a1.txt"
 #define BCM4334B1_CONF_NAME "config_4334b1.txt"
 #define BCM43341B0_CONF_NAME "config_43341b0.txt"
+#define BCM43436B0_CONF_NAME "config_43430b0.txt"
 #define BCM43241B4_CONF_NAME "config_43241b4.txt"
 #define BCM4339A0_CONF_NAME "config_4339a0.txt"
 #define BCM43455C0_CONF_NAME "config_43455c0.txt"
@@ -68,7 +69,7 @@ uint config_msg_level = CONFIG_ERROR_LEVEL;
 #ifdef BCMSDIO
 #define SBSDIO_CIS_SIZE_LIMIT		0x200		/* maximum bytes in one CIS */
 
-const static char *bcm4330b2_fw_name[] = {
+const static char* bcm4330b2_fw_name[] = {
 	"fw_bcm40183b2.bin",
 	"fw_bcm40183b2_apsta.bin",
 	"fw_bcm40183b2_p2p.bin",
@@ -76,7 +77,7 @@ const static char *bcm4330b2_fw_name[] = {
 	"fw_bcm40183b2_mfg.bin"
 };
 
-const static char *bcm4330b2_ag_fw_name[] = {
+const static char* bcm4330b2_ag_fw_name[] = {
 	"fw_bcm40183b2_ag.bin",
 	"fw_bcm40183b2_ag_apsta.bin",
 	"fw_bcm40183b2_ag_p2p.bin",
@@ -84,7 +85,7 @@ const static char *bcm4330b2_ag_fw_name[] = {
 	"fw_bcm40183b2_ag_mfg.bin"
 };
 
-const static char *bcm43362a0_fw_name[] = {
+const static char* bcm43362a0_fw_name[] = {
 	"fw_bcm40181a0.bin",
 	"fw_bcm40181a0_apsta.bin",
 	"fw_bcm40181a0_p2p.bin",
@@ -92,7 +93,15 @@ const static char *bcm43362a0_fw_name[] = {
 	"fw_bcm40181a0_mfg.bin"
 };
 
-const static char *bcm43362a2_fw_name[] = {
+const static char* bcm43436b0_fw_name[] = {
+	"fw_bcm43436b0.bin",
+	"fw_bcm43436b0_apsta.bin",
+	"fw_bcm43436b0_p2p.bin",
+	"fw_bcm43436b0_es.bin",
+	"fw_bcm43436b0_mfg.bin"
+};
+
+const static char* bcm43362a2_fw_name[] = {
 	"fw_bcm40181a2.bin",
 	"fw_bcm40181a2_apsta.bin",
 	"fw_bcm40181a2_p2p.bin",
@@ -100,7 +109,7 @@ const static char *bcm43362a2_fw_name[] = {
 	"fw_bcm40181a2_mfg.bin"
 };
 
-const static char *bcm4334b1_ag_fw_name[] = {
+const static char* bcm4334b1_ag_fw_name[] = {
 	"fw_bcm4334b1_ag.bin",
 	"fw_bcm4334b1_ag_apsta.bin",
 	"fw_bcm4334b1_ag_p2p.bin",
@@ -108,7 +117,7 @@ const static char *bcm4334b1_ag_fw_name[] = {
 	"fw_bcm4334b1_ag_mfg.bin"
 };
 
-const static char *bcm43438a0_fw_name[] = {
+const static char* bcm43438a0_fw_name[] = {
 	"fw_bcm43438a0.bin",
 	"fw_bcm43438a0_apsta.bin",
 	"fw_bcm43438a0_p2p.bin",
@@ -116,7 +125,7 @@ const static char *bcm43438a0_fw_name[] = {
 	"fw_bcm43438a0_mfg.bin"
 };
 
-const static char *bcm43438a1_fw_name[] = {
+const static char* bcm43438a1_fw_name[] = {
 	"fw_bcm43438a1.bin",
 	"fw_bcm43438a1_apsta.bin",
 	"fw_bcm43438a1_p2p.bin",
@@ -124,7 +133,7 @@ const static char *bcm43438a1_fw_name[] = {
 	"fw_bcm43438a1_mfg.bin"
 };
 
-const static char *bcm43341b0_ag_fw_name[] = {
+const static char* bcm43341b0_ag_fw_name[] = {
 	"fw_bcm43341b0_ag.bin",
 	"fw_bcm43341b0_ag_apsta.bin",
 	"fw_bcm43341b0_ag_p2p.bin",
@@ -132,7 +141,7 @@ const static char *bcm43341b0_ag_fw_name[] = {
 	"fw_bcm43341b0_ag_mfg.bin"
 };
 
-const static char *bcm43241b4_ag_fw_name[] = {
+const static char* bcm43241b4_ag_fw_name[] = {
 	"fw_bcm43241b4_ag.bin",
 	"fw_bcm43241b4_ag_apsta.bin",
 	"fw_bcm43241b4_ag_p2p.bin",
@@ -140,7 +149,7 @@ const static char *bcm43241b4_ag_fw_name[] = {
 	"fw_bcm43241b4_ag_mfg.bin"
 };
 
-const static char *bcm4339a0_ag_fw_name[] = {
+const static char* bcm4339a0_ag_fw_name[] = {
 	"fw_bcm4339a0_ag.bin",
 	"fw_bcm4339a0_ag_apsta.bin",
 	"fw_bcm4339a0_ag_p2p.bin",
@@ -148,7 +157,7 @@ const static char *bcm4339a0_ag_fw_name[] = {
 	"fw_bcm4339a0_ag_mfg.bin"
 };
 
-const static char *bcm43455c0_ag_fw_name[] = {
+const static char* bcm43455c0_ag_fw_name[] = {
 	"fw_bcm43455c0_ag.bin",
 	"fw_bcm43455c0_ag_apsta.bin",
 	"fw_bcm43455c0_ag_p2p.bin",
@@ -156,7 +165,7 @@ const static char *bcm43455c0_ag_fw_name[] = {
 	"fw_bcm43455c0_ag_mfg.bin"
 };
 
-const static char *bcm4354a1_ag_fw_name[] = {
+const static char* bcm4354a1_ag_fw_name[] = {
 	"fw_bcm4354a1_ag.bin",
 	"fw_bcm4354a1_ag_apsta.bin",
 	"fw_bcm4354a1_ag_p2p.bin",
@@ -164,7 +173,7 @@ const static char *bcm4354a1_ag_fw_name[] = {
 	"fw_bcm4354a1_ag_mfg.bin"
 };
 
-const static char *bcm4356a2_ag_fw_name[] = {
+const static char* bcm4356a2_ag_fw_name[] = {
 	"fw_bcm4356a2_ag.bin",
 	"fw_bcm4356a2_ag_apsta.bin",
 	"fw_bcm4356a2_ag_p2p.bin",
@@ -172,7 +181,7 @@ const static char *bcm4356a2_ag_fw_name[] = {
 	"fw_bcm4356a2_ag_mfg.bin"
 };
 
-const static char *bcm4359b1_ag_fw_name[] = {
+const static char* bcm4359b1_ag_fw_name[] = {
 	"fw_bcm4359b1_ag.bin",
 	"fw_bcm4359b1_ag_apsta.bin",
 	"fw_bcm4359b1_ag_p2p.bin",
@@ -181,7 +190,7 @@ const static char *bcm4359b1_ag_fw_name[] = {
 };
 #endif
 #ifdef BCMPCIE
-const static char *bcm4356a2_pcie_ag_fw_name[] = {
+const static char* bcm4356a2_pcie_ag_fw_name[] = {
 	"fw_bcm4356a2_pcie_ag.bin",
 	"fw_bcm4356a2_pcie_ag_apsta.bin",
 	"fw_bcm4356a2_pcie_ag_p2p.bin",
@@ -199,13 +208,13 @@ const static char *bcm4356a2_pcie_ag_fw_name[] = {
 
 #ifdef BCMSDIO
 void
-dhd_conf_free_mac_list(wl_mac_list_ctrl_t *mac_list)
+dhd_conf_free_mac_list(wl_mac_list_ctrl_t* mac_list)
 {
 	int i;
 
 	CONFIG_TRACE(("%s called\n", __FUNCTION__));
 	if (mac_list->m_mac_list_head) {
-		for (i=0; i<mac_list->count; i++) {
+		for (i = 0; i < mac_list->count; i++) {
 			if (mac_list->m_mac_list_head[i].mac) {
 				CONFIG_TRACE(("%s Free mac %p\n", __FUNCTION__, mac_list->m_mac_list_head[i].mac));
 				kfree(mac_list->m_mac_list_head[i].mac);
@@ -218,7 +227,7 @@ dhd_conf_free_mac_list(wl_mac_list_ctrl_t *mac_list)
 }
 
 void
-dhd_conf_free_chip_nv_path_list(wl_chip_nv_path_list_ctrl_t *chip_nv_list)
+dhd_conf_free_chip_nv_path_list(wl_chip_nv_path_list_ctrl_t* chip_nv_list)
 {
 	CONFIG_TRACE(("%s called\n", __FUNCTION__));
 
@@ -231,7 +240,7 @@ dhd_conf_free_chip_nv_path_list(wl_chip_nv_path_list_ctrl_t *chip_nv_list)
 
 #if defined(HW_OOB) || defined(FORCE_WOWLAN)
 void
-dhd_conf_set_hw_oob_intr(bcmsdh_info_t *sdh, uint chip)
+dhd_conf_set_hw_oob_intr(bcmsdh_info_t* sdh, uint chip)
 {
 	uint32 gpiocontrol, addr;
 
@@ -249,13 +258,13 @@ dhd_conf_set_hw_oob_intr(bcmsdh_info_t *sdh, uint chip)
 #endif
 
 int
-dhd_conf_get_mac(dhd_pub_t *dhd, bcmsdh_info_t *sdh, uint8 *mac)
+dhd_conf_get_mac(dhd_pub_t* dhd, bcmsdh_info_t* sdh, uint8* mac)
 {
 	int i, err = -1;
-	uint8 *ptr = 0;
-	unsigned char tpl_code, tpl_link='\0';
-	uint8 header[3] = {0x80, 0x07, 0x19};
-	uint8 *cis;
+	uint8* ptr = 0;
+	unsigned char tpl_code, tpl_link = '\0';
+	uint8 header[3] = { 0x80, 0x07, 0x19 };
+	uint8* cis;
 
 	if (!(cis = MALLOC(dhd->osh, SBSDIO_CIS_SIZE_LIMIT))) {
 		CONFIG_ERROR(("%s: cis malloc failed\n", __FUNCTION__));
@@ -290,9 +299,9 @@ dhd_conf_get_mac(dhd_pub_t *dhd, bcmsdh_info_t *sdh, uint8 *mac)
 			printf("%s: tpl_code=0x%02x, tpl_link=0x%02x, tag=0x%02x\n",
 				__FUNCTION__, tpl_code, tpl_link, *ptr);
 			printk("%s: value:", __FUNCTION__);
-			for (i=0; i<tpl_link-1; i++) {
-				printk("%02x ", ptr[i+1]);
-				if ((i+1) % 16 == 0)
+			for (i = 0; i < tpl_link - 1; i++) {
+				printk("%02x ", ptr[i + 1]);
+				if ((i + 1) % 16 == 0)
 					printk("\n");
 			}
 			printk("\n");
@@ -306,15 +315,16 @@ dhd_conf_get_mac(dhd_pub_t *dhd, bcmsdh_info_t *sdh, uint8 *mac)
 
 	if (tpl_code == 0x80 && tpl_link == 0x07 && *ptr == 0x19) {
 		/* Normal OTP */
-		memcpy(mac, ptr+1, 6);
+		memcpy(mac, ptr + 1, 6);
 		err = 0;
-	} else {
+	}
+	else {
 		ptr = cis;
 		/* Special OTP */
 		if (bcmsdh_reg_read(sdh, SI_ENUM_BASE, 4) == 0x16044330) {
-			for (i=0; i<SBSDIO_CIS_SIZE_LIMIT; i++) {
+			for (i = 0; i < SBSDIO_CIS_SIZE_LIMIT; i++) {
 				if (!memcmp(header, ptr, 3)) {
-					memcpy(mac, ptr+3, 6);
+					memcpy(mac, ptr + 3, 6);
 					err = 0;
 					break;
 				}
@@ -330,15 +340,15 @@ dhd_conf_get_mac(dhd_pub_t *dhd, bcmsdh_info_t *sdh, uint8 *mac)
 }
 
 void
-dhd_conf_set_fw_name_by_mac(dhd_pub_t *dhd, bcmsdh_info_t *sdh, char *fw_path)
+dhd_conf_set_fw_name_by_mac(dhd_pub_t* dhd, bcmsdh_info_t* sdh, char* fw_path)
 {
 	int i, j;
-	uint8 mac[6]={0};
-	int fw_num=0, mac_num=0;
+	uint8 mac[6] = { 0 };
+	int fw_num = 0, mac_num = 0;
 	uint32 oui, nic;
-	wl_mac_list_t *mac_list;
-	wl_mac_range_t *mac_range;
-	char *pfw_name;
+	wl_mac_list_t* mac_list;
+	wl_mac_range_t* mac_range;
+	char* pfw_name;
 	int fw_type, fw_type_new;
 
 	mac_list = dhd->conf->fw_by_mac.m_mac_list_head;
@@ -359,24 +369,24 @@ dhd_conf_set_fw_name_by_mac(dhd_pub_t *dhd, bcmsdh_info_t *sdh, char *fw_path)
 		if (fw_path[i] == '/') break;
 		i--;
 	}
-	pfw_name = &fw_path[i+1];
+	pfw_name = &fw_path[i + 1];
 	fw_type = (strstr(pfw_name, "_mfg") ?
 		FW_TYPE_MFG : (strstr(pfw_name, "_apsta") ?
-		FW_TYPE_APSTA : (strstr(pfw_name, "_p2p") ?
-		FW_TYPE_P2P : FW_TYPE_STA)));
+			FW_TYPE_APSTA : (strstr(pfw_name, "_p2p") ?
+				FW_TYPE_P2P : FW_TYPE_STA)));
 
-	for (i=0; i<fw_num; i++) {
+	for (i = 0; i < fw_num; i++) {
 		mac_num = mac_list[i].count;
 		mac_range = mac_list[i].mac;
 		fw_type_new = (strstr(mac_list[i].name, "_mfg") ?
 			FW_TYPE_MFG : (strstr(mac_list[i].name, "_apsta") ?
-			FW_TYPE_APSTA : (strstr(mac_list[i].name, "_p2p") ?
-			FW_TYPE_P2P : FW_TYPE_STA)));
+				FW_TYPE_APSTA : (strstr(mac_list[i].name, "_p2p") ?
+					FW_TYPE_P2P : FW_TYPE_STA)));
 		if (fw_type != fw_type_new) {
 			printf("%s: fw_typ=%d != fw_type_new=%d\n", __FUNCTION__, fw_type, fw_type_new);
 			continue;
 		}
-		for (j=0; j<mac_num; j++) {
+		for (j = 0; j < mac_num; j++) {
 			if (oui == mac_range[j].oui) {
 				if (nic >= mac_range[j].nic_start && nic <= mac_range[j].nic_end) {
 					strcpy(pfw_name, mac_list[i].name);
@@ -391,15 +401,15 @@ dhd_conf_set_fw_name_by_mac(dhd_pub_t *dhd, bcmsdh_info_t *sdh, char *fw_path)
 }
 
 void
-dhd_conf_set_nv_name_by_mac(dhd_pub_t *dhd, bcmsdh_info_t *sdh, char *nv_path)
+dhd_conf_set_nv_name_by_mac(dhd_pub_t* dhd, bcmsdh_info_t* sdh, char* nv_path)
 {
 	int i, j;
-	uint8 mac[6]={0};
-	int nv_num=0, mac_num=0;
+	uint8 mac[6] = { 0 };
+	int nv_num = 0, mac_num = 0;
 	uint32 oui, nic;
-	wl_mac_list_t *mac_list;
-	wl_mac_range_t *mac_range;
-	char *pnv_name;
+	wl_mac_list_t* mac_list;
+	wl_mac_range_t* mac_range;
+	char* pnv_name;
 
 	mac_list = dhd->conf->nv_by_mac.m_mac_list_head;
 	nv_num = dhd->conf->nv_by_mac.count;
@@ -419,12 +429,12 @@ dhd_conf_set_nv_name_by_mac(dhd_pub_t *dhd, bcmsdh_info_t *sdh, char *nv_path)
 		if (nv_path[i] == '/') break;
 		i--;
 	}
-	pnv_name = &nv_path[i+1];
+	pnv_name = &nv_path[i + 1];
 
-	for (i=0; i<nv_num; i++) {
+	for (i = 0; i < nv_num; i++) {
 		mac_num = mac_list[i].count;
 		mac_range = mac_list[i].mac;
-		for (j=0; j<mac_num; j++) {
+		for (j = 0; j < mac_num; j++) {
 			if (oui == mac_range[j].oui) {
 				if (nic >= mac_range[j].nic_start && nic <= mac_range[j].nic_end) {
 					strcpy(pnv_name, mac_list[i].name);
@@ -440,7 +450,7 @@ dhd_conf_set_nv_name_by_mac(dhd_pub_t *dhd, bcmsdh_info_t *sdh, char *nv_path)
 #endif
 
 void
-dhd_conf_set_fw_name_by_chip(dhd_pub_t *dhd, char *fw_path)
+dhd_conf_set_fw_name_by_chip(dhd_pub_t* dhd, char* fw_path)
 {
 	int fw_type, ag_type;
 	uint chip, chiprev;
@@ -451,7 +461,7 @@ dhd_conf_set_fw_name_by_chip(dhd_pub_t *dhd, char *fw_path)
 
 	if (fw_path[0] == '\0') {
 #ifdef CONFIG_BCMDHD_FW_PATH
-		bcm_strncpy_s(fw_path, MOD_PARAM_PATHLEN-1, CONFIG_BCMDHD_FW_PATH, MOD_PARAM_PATHLEN-1);
+		bcm_strncpy_s(fw_path, MOD_PARAM_PATHLEN - 1, CONFIG_BCMDHD_FW_PATH, MOD_PARAM_PATHLEN - 1);
 		if (fw_path[0] == '\0')
 #endif
 		{
@@ -476,81 +486,84 @@ dhd_conf_set_fw_name_by_chip(dhd_pub_t *dhd, char *fw_path)
 #endif
 	fw_type = (strstr(&fw_path[i], "_mfg") ? FW_TYPE_MFG :
 		(strstr(&fw_path[i], "_apsta") ? FW_TYPE_APSTA :
-		(strstr(&fw_path[i], "_p2p") ? FW_TYPE_P2P :
-		(strstr(&fw_path[i], "_es") ? FW_TYPE_ES :
-		FW_TYPE_STA))));
+			(strstr(&fw_path[i], "_p2p") ? FW_TYPE_P2P :
+				(strstr(&fw_path[i], "_es") ? FW_TYPE_ES :
+					FW_TYPE_STA))));
 
 	switch (chip) {
 #ifdef BCMSDIO
-		case BCM4330_CHIP_ID:
-			if (ag_type == FW_TYPE_G) {
-				if (chiprev == BCM4330B2_CHIP_REV)
-					strcpy(&fw_path[i+1], bcm4330b2_fw_name[fw_type]);
-				break;
-			} else {
-				if (chiprev == BCM4330B2_CHIP_REV)
-					strcpy(&fw_path[i+1], bcm4330b2_ag_fw_name[fw_type]);
-				break;
-			}
-		case BCM43362_CHIP_ID:
-			if (chiprev == BCM43362A0_CHIP_REV)
-				strcpy(&fw_path[i+1], bcm43362a0_fw_name[fw_type]);
-			else
-				strcpy(&fw_path[i+1], bcm43362a2_fw_name[fw_type]);
+	case BCM4330_CHIP_ID:
+		if (ag_type == FW_TYPE_G) {
+			if (chiprev == BCM4330B2_CHIP_REV)
+				strcpy(&fw_path[i + 1], bcm4330b2_fw_name[fw_type]);
 			break;
-		case BCM43430_CHIP_ID:
-			if (chiprev == BCM43430A0_CHIP_REV)
-				strcpy(&fw_path[i+1], bcm43438a0_fw_name[fw_type]);
-			else if (chiprev == BCM43430A1_CHIP_REV)
-				strcpy(&fw_path[i+1], bcm43438a1_fw_name[fw_type]);
+		}
+		else {
+			if (chiprev == BCM4330B2_CHIP_REV)
+				strcpy(&fw_path[i + 1], bcm4330b2_ag_fw_name[fw_type]);
 			break;
-		case BCM4334_CHIP_ID:
-			if (chiprev == BCM4334B1_CHIP_REV)
-				strcpy(&fw_path[i+1], bcm4334b1_ag_fw_name[fw_type]);
-			break;
-		case BCM43340_CHIP_ID:
-		case BCM43341_CHIP_ID:
-			if (chiprev == BCM43341B0_CHIP_REV)
-				strcpy(&fw_path[i+1], bcm43341b0_ag_fw_name[fw_type]);
-			break;
-		case BCM4324_CHIP_ID:
-			if (chiprev == BCM43241B4_CHIP_REV)
-				strcpy(&fw_path[i+1], bcm43241b4_ag_fw_name[fw_type]);
-			break;
-		case BCM4335_CHIP_ID:
-			if (chiprev == BCM4335A0_CHIP_REV)
-				strcpy(&fw_path[i+1], bcm4339a0_ag_fw_name[fw_type]);
-			break;
-		case BCM4345_CHIP_ID:
-		case BCM43454_CHIP_ID:
-			if (chiprev == BCM43455C0_CHIP_REV)
-				strcpy(&fw_path[i+1], bcm43455c0_ag_fw_name[fw_type]);
-			break;
-		case BCM4339_CHIP_ID:
-			if (chiprev == BCM4339A0_CHIP_REV)
-				strcpy(&fw_path[i+1], bcm4339a0_ag_fw_name[fw_type]);
-			break;
-		case BCM4354_CHIP_ID:
-			if (chiprev == BCM4354A1_CHIP_REV)
-				strcpy(&fw_path[i+1], bcm4354a1_ag_fw_name[fw_type]);
-			else if (chiprev == BCM4356A2_CHIP_REV)
-				strcpy(&fw_path[i+1], bcm4356a2_ag_fw_name[fw_type]);
-			break;
-		case BCM4356_CHIP_ID:
-		case BCM4371_CHIP_ID:
-			if (chiprev == BCM4356A2_CHIP_REV)
-				strcpy(&fw_path[i+1], bcm4356a2_ag_fw_name[fw_type]);
-			break;
-		case BCM4359_CHIP_ID:
-			if (chiprev == BCM4359B1_CHIP_REV)
-				strcpy(&fw_path[i+1], bcm4359b1_ag_fw_name[fw_type]);
-			break;
+		}
+	case BCM43362_CHIP_ID:
+		if (chiprev == BCM43362A0_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm43362a0_fw_name[fw_type]);
+		else
+			strcpy(&fw_path[i + 1], bcm43362a2_fw_name[fw_type]);
+		break;
+	case BCM43430_CHIP_ID:
+		if (chiprev == BCM43430A0_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm43438a0_fw_name[fw_type]);
+		else if (chiprev == BCM43430A1_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm43438a1_fw_name[fw_type]);
+		else if (chiprev == BCM43436B0_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm43436b0_fw_name[fw_type]);
+		break;
+	case BCM4334_CHIP_ID:
+		if (chiprev == BCM4334B1_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm4334b1_ag_fw_name[fw_type]);
+		break;
+	case BCM43340_CHIP_ID:
+	case BCM43341_CHIP_ID:
+		if (chiprev == BCM43341B0_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm43341b0_ag_fw_name[fw_type]);
+		break;
+	case BCM4324_CHIP_ID:
+		if (chiprev == BCM43241B4_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm43241b4_ag_fw_name[fw_type]);
+		break;
+	case BCM4335_CHIP_ID:
+		if (chiprev == BCM4335A0_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm4339a0_ag_fw_name[fw_type]);
+		break;
+	case BCM4345_CHIP_ID:
+	case BCM43454_CHIP_ID:
+		if (chiprev == BCM43455C0_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm43455c0_ag_fw_name[fw_type]);
+		break;
+	case BCM4339_CHIP_ID:
+		if (chiprev == BCM4339A0_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm4339a0_ag_fw_name[fw_type]);
+		break;
+	case BCM4354_CHIP_ID:
+		if (chiprev == BCM4354A1_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm4354a1_ag_fw_name[fw_type]);
+		else if (chiprev == BCM4356A2_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm4356a2_ag_fw_name[fw_type]);
+		break;
+	case BCM4356_CHIP_ID:
+	case BCM4371_CHIP_ID:
+		if (chiprev == BCM4356A2_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm4356a2_ag_fw_name[fw_type]);
+		break;
+	case BCM4359_CHIP_ID:
+		if (chiprev == BCM4359B1_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm4359b1_ag_fw_name[fw_type]);
+		break;
 #endif
 #ifdef BCMPCIE
-		case BCM4356_CHIP_ID:
-			if (chiprev == BCM4356A2_CHIP_REV)
-				strcpy(&fw_path[i+1], bcm4356a2_pcie_ag_fw_name[fw_type]);
-			break;
+	case BCM4356_CHIP_ID:
+		if (chiprev == BCM4356A2_CHIP_REV)
+			strcpy(&fw_path[i + 1], bcm4356a2_pcie_ag_fw_name[fw_type]);
+		break;
 #endif
 	}
 
@@ -558,18 +571,18 @@ dhd_conf_set_fw_name_by_chip(dhd_pub_t *dhd, char *fw_path)
 }
 
 void
-dhd_conf_set_nv_name_by_chip(dhd_pub_t *dhd, char *nv_path)
+dhd_conf_set_nv_name_by_chip(dhd_pub_t* dhd, char* nv_path)
 {
-	int matched=-1;
+	int matched = -1;
 	uint chip, chiprev;
 	int i;
 
 	chip = dhd->conf->chip;
 	chiprev = dhd->conf->chiprev;
 
-	for (i=0; i<dhd->conf->nv_by_chip.count; i++) {
-		if (chip==dhd->conf->nv_by_chip.m_chip_nv_path_head[i].chip &&
-				chiprev==dhd->conf->nv_by_chip.m_chip_nv_path_head[i].chiprev) {
+	for (i = 0; i < dhd->conf->nv_by_chip.count; i++) {
+		if (chip == dhd->conf->nv_by_chip.m_chip_nv_path_head[i].chip &&
+			chiprev == dhd->conf->nv_by_chip.m_chip_nv_path_head[i].chiprev) {
 			matched = i;
 			break;
 		}
@@ -579,7 +592,7 @@ dhd_conf_set_nv_name_by_chip(dhd_pub_t *dhd, char *nv_path)
 
 	if (nv_path[0] == '\0') {
 #ifdef CONFIG_BCMDHD_NVRAM_PATH
-		bcm_strncpy_s(nv_path, MOD_PARAM_PATHLEN-1, CONFIG_BCMDHD_NVRAM_PATH, MOD_PARAM_PATHLEN-1);
+		bcm_strncpy_s(nv_path, MOD_PARAM_PATHLEN - 1, CONFIG_BCMDHD_NVRAM_PATH, MOD_PARAM_PATHLEN - 1);
 		if (nv_path[0] == '\0')
 #endif
 		{
@@ -595,26 +608,27 @@ dhd_conf_set_nv_name_by_chip(dhd_pub_t *dhd, char *nv_path)
 		i--;
 	}
 
-	strcpy(&nv_path[i+1], dhd->conf->nv_by_chip.m_chip_nv_path_head[matched].name);
+	strcpy(&nv_path[i + 1], dhd->conf->nv_by_chip.m_chip_nv_path_head[matched].name);
 
 	printf("%s: nvram_path=%s\n", __FUNCTION__, nv_path);
 }
 
 void
-dhd_conf_set_conf_path_by_nv_path(dhd_pub_t *dhd, char *conf_path, char *nv_path)
+dhd_conf_set_conf_path_by_nv_path(dhd_pub_t* dhd, char* conf_path, char* nv_path)
 {
 	int i;
 
 	if (nv_path[0] == '\0') {
 #ifdef CONFIG_BCMDHD_NVRAM_PATH
-		bcm_strncpy_s(conf_path, MOD_PARAM_PATHLEN-1, CONFIG_BCMDHD_NVRAM_PATH, MOD_PARAM_PATHLEN-1);
+		bcm_strncpy_s(conf_path, MOD_PARAM_PATHLEN - 1, CONFIG_BCMDHD_NVRAM_PATH, MOD_PARAM_PATHLEN - 1);
 		if (nv_path[0] == '\0')
 #endif
 		{
 			printf("nvram path is null\n");
 			return;
 		}
-	} else
+	}
+	else
 		strcpy(conf_path, nv_path);
 
 	/* find out the last '/' */
@@ -623,14 +637,14 @@ dhd_conf_set_conf_path_by_nv_path(dhd_pub_t *dhd, char *conf_path, char *nv_path
 		if (conf_path[i] == '/') break;
 		i--;
 	}
-	strcpy(&conf_path[i+1], "config.txt");
+	strcpy(&conf_path[i + 1], "config.txt");
 
 	printf("%s: config_path=%s\n", __FUNCTION__, conf_path);
 }
 
 #ifdef CONFIG_PATH_AUTO_SELECT
 void
-dhd_conf_set_conf_name_by_chip(dhd_pub_t *dhd, char *conf_path)
+dhd_conf_set_conf_name_by_chip(dhd_pub_t* dhd, char* conf_path)
 {
 	uint chip, chiprev;
 	int i;
@@ -652,69 +666,71 @@ dhd_conf_set_conf_name_by_chip(dhd_pub_t *dhd, char *conf_path)
 
 	switch (chip) {
 #ifdef BCMSDIO
-		case BCM4330_CHIP_ID:
-			if (chiprev == BCM4330B2_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM4330B2_CONF_NAME);
-			break;
-		case BCM43362_CHIP_ID:
-			if (chiprev == BCM43362A0_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM43362A0_CONF_NAME);
-			else
-				strcpy(&conf_path[i+1], BCM43362A2_CONF_NAME);
-			break;
-		case BCM43430_CHIP_ID:
-			if (chiprev == BCM43430A0_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM43438A0_CONF_NAME);
-			else if (chiprev == BCM43430A1_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM43438A1_CONF_NAME);
-			break;
-		case BCM4334_CHIP_ID:
-			if (chiprev == BCM4334B1_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM4334B1_CONF_NAME);
-			break;
-		case BCM43340_CHIP_ID:
-		case BCM43341_CHIP_ID:
-			if (chiprev == BCM43341B0_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM43341B0_CONF_NAME);
-			break;
-		case BCM4324_CHIP_ID:
-			if (chiprev == BCM43241B4_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM43241B4_CONF_NAME);
-			break;
-		case BCM4335_CHIP_ID:
-			if (chiprev == BCM4335A0_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM4339A0_CONF_NAME);
-			break;
-		case BCM4345_CHIP_ID:
-		case BCM43454_CHIP_ID:
-			if (chiprev == BCM43455C0_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM43455C0_CONF_NAME);
-			break;
-		case BCM4339_CHIP_ID:
-			if (chiprev == BCM4339A0_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM4339A0_CONF_NAME);
-			break;
-		case BCM4354_CHIP_ID:
-			if (chiprev == BCM4354A1_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM4354A1_CONF_NAME);
-			else if (chiprev == BCM4356A2_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM4356A2_CONF_NAME);
-			break;
-		case BCM4356_CHIP_ID:
-		case BCM4371_CHIP_ID:
-			if (chiprev == BCM4356A2_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM4356A2_CONF_NAME);
-			break;
-		case BCM4359_CHIP_ID:
-			if (chiprev == BCM4359B1_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM4359B1_CONF_NAME);
-			break;
+	case BCM4330_CHIP_ID:
+		if (chiprev == BCM4330B2_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM4330B2_CONF_NAME);
+		break;
+	case BCM43362_CHIP_ID:
+		if (chiprev == BCM43362A0_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM43362A0_CONF_NAME);
+		else
+			strcpy(&conf_path[i + 1], BCM43362A2_CONF_NAME);
+		break;
+	case BCM43430_CHIP_ID:
+		if (chiprev == BCM43430A0_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM43438A0_CONF_NAME);
+		else if (chiprev == BCM43430A1_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM43438A1_CONF_NAME);
+		else if (chiprev == BCM43436B0_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM43436B0_CONF_NAME);
+		break;
+	case BCM4334_CHIP_ID:
+		if (chiprev == BCM4334B1_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM4334B1_CONF_NAME);
+		break;
+	case BCM43340_CHIP_ID:
+	case BCM43341_CHIP_ID:
+		if (chiprev == BCM43341B0_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM43341B0_CONF_NAME);
+		break;
+	case BCM4324_CHIP_ID:
+		if (chiprev == BCM43241B4_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM43241B4_CONF_NAME);
+		break;
+	case BCM4335_CHIP_ID:
+		if (chiprev == BCM4335A0_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM4339A0_CONF_NAME);
+		break;
+	case BCM4345_CHIP_ID:
+	case BCM43454_CHIP_ID:
+		if (chiprev == BCM43455C0_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM43455C0_CONF_NAME);
+		break;
+	case BCM4339_CHIP_ID:
+		if (chiprev == BCM4339A0_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM4339A0_CONF_NAME);
+		break;
+	case BCM4354_CHIP_ID:
+		if (chiprev == BCM4354A1_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM4354A1_CONF_NAME);
+		else if (chiprev == BCM4356A2_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM4356A2_CONF_NAME);
+		break;
+	case BCM4356_CHIP_ID:
+	case BCM4371_CHIP_ID:
+		if (chiprev == BCM4356A2_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM4356A2_CONF_NAME);
+		break;
+	case BCM4359_CHIP_ID:
+		if (chiprev == BCM4359B1_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM4359B1_CONF_NAME);
+		break;
 #endif
 #ifdef BCMPCIE
-		case BCM4356_CHIP_ID:
-			if (chiprev == BCM4356A2_CHIP_REV)
-				strcpy(&conf_path[i+1], BCM4356A2_CONF_NAME);
-			break;
+	case BCM4356_CHIP_ID:
+		if (chiprev == BCM4356A2_CHIP_REV)
+			strcpy(&conf_path[i + 1], BCM4356A2_CONF_NAME);
+		break;
 #endif
 	}
 
@@ -723,7 +739,7 @@ dhd_conf_set_conf_name_by_chip(dhd_pub_t *dhd, char *conf_path)
 #endif
 
 int
-dhd_conf_set_fw_int_cmd(dhd_pub_t *dhd, char *name, uint cmd, int val,
+dhd_conf_set_fw_int_cmd(dhd_pub_t* dhd, char* name, uint cmd, int val,
 	int def, bool down)
 {
 	int bcmerror = -1;
@@ -741,8 +757,8 @@ dhd_conf_set_fw_int_cmd(dhd_pub_t *dhd, char *name, uint cmd, int val,
 }
 
 int
-dhd_conf_set_fw_int_struct_cmd(dhd_pub_t *dhd, char *name, uint cmd,
-	int *val, int len, bool down)
+dhd_conf_set_fw_int_struct_cmd(dhd_pub_t* dhd, char* name, uint cmd,
+	int* val, int len, bool down)
 {
 	int bcmerror = -1;
 
@@ -757,7 +773,7 @@ dhd_conf_set_fw_int_struct_cmd(dhd_pub_t *dhd, char *name, uint cmd,
 }
 
 int
-dhd_conf_set_fw_string_cmd(dhd_pub_t *dhd, char *cmd, int val, int def,
+dhd_conf_set_fw_string_cmd(dhd_pub_t* dhd, char* cmd, int val, int def,
 	bool down)
 {
 	int bcmerror = -1;
@@ -769,7 +785,7 @@ dhd_conf_set_fw_string_cmd(dhd_pub_t *dhd, char *cmd, int val, int def,
 				CONFIG_ERROR(("%s: WLC_DOWN setting failed %d\n", __FUNCTION__, bcmerror));
 		}
 		printf("%s: set %s %d\n", __FUNCTION__, cmd, val);
-		bcm_mkiovar(cmd, (char *)&val, 4, iovbuf, sizeof(iovbuf));
+		bcm_mkiovar(cmd, (char*)&val, 4, iovbuf, sizeof(iovbuf));
 		if ((bcmerror = dhd_wl_ioctl_cmd(dhd, WLC_SET_VAR, iovbuf, sizeof(iovbuf), TRUE, 0)) < 0)
 			CONFIG_ERROR(("%s: %s setting failed %d\n", __FUNCTION__, cmd, bcmerror));
 	}
@@ -777,12 +793,12 @@ dhd_conf_set_fw_string_cmd(dhd_pub_t *dhd, char *cmd, int val, int def,
 }
 
 int
-dhd_conf_set_fw_string_struct_cmd(dhd_pub_t *dhd, char *cmd, char *val,
+dhd_conf_set_fw_string_struct_cmd(dhd_pub_t* dhd, char* cmd, char* val,
 	int len, bool down)
 {
 	int bcmerror = -1;
 	char iovbuf[WLC_IOCTL_SMLEN];
-	
+
 	if (down) {
 		if ((bcmerror = dhd_wl_ioctl_cmd(dhd, WLC_DOWN, NULL, 0, TRUE, 0)) < 0)
 			CONFIG_ERROR(("%s: WLC_DOWN setting failed %d\n", __FUNCTION__, bcmerror));
@@ -795,7 +811,7 @@ dhd_conf_set_fw_string_struct_cmd(dhd_pub_t *dhd, char *cmd, char *val,
 }
 
 uint
-dhd_conf_get_band(dhd_pub_t *dhd)
+dhd_conf_get_band(dhd_pub_t* dhd)
 {
 	uint band = WLC_BAND_AUTO;
 
@@ -808,20 +824,20 @@ dhd_conf_get_band(dhd_pub_t *dhd)
 }
 
 int
-dhd_conf_set_country(dhd_pub_t *dhd)
+dhd_conf_set_country(dhd_pub_t* dhd)
 {
 	int bcmerror = -1;
 
 	memset(&dhd->dhd_cspec, 0, sizeof(wl_country_t));
 	printf("%s: set country %s, revision %d\n", __FUNCTION__,
 		dhd->conf->cspec.ccode, dhd->conf->cspec.rev);
-	dhd_conf_set_fw_string_struct_cmd(dhd, "country", (char *)&dhd->conf->cspec, sizeof(wl_country_t), FALSE);
+	dhd_conf_set_fw_string_struct_cmd(dhd, "country", (char*)&dhd->conf->cspec, sizeof(wl_country_t), FALSE);
 
 	return bcmerror;
 }
 
 int
-dhd_conf_get_country(dhd_pub_t *dhd, wl_country_t *cspec)
+dhd_conf_get_country(dhd_pub_t* dhd, wl_country_t* cspec)
 {
 	int bcmerror = -1;
 
@@ -836,10 +852,10 @@ dhd_conf_get_country(dhd_pub_t *dhd, wl_country_t *cspec)
 }
 
 int
-dhd_conf_get_country_from_config(dhd_pub_t *dhd, wl_country_t *cspec)
+dhd_conf_get_country_from_config(dhd_pub_t* dhd, wl_country_t* cspec)
 {
 	int bcmerror = -1, i;
-	struct dhd_conf *conf = dhd->conf;
+	struct dhd_conf* conf = dhd->conf;
 
 	for (i = 0; i < conf->country_list.count; i++) {
 		if (strcmp(cspec->country_abbrev, conf->country_list.cspec[i].country_abbrev) == 0) {
@@ -855,19 +871,19 @@ dhd_conf_get_country_from_config(dhd_pub_t *dhd, wl_country_t *cspec)
 }
 
 int
-dhd_conf_fix_country(dhd_pub_t *dhd)
+dhd_conf_fix_country(dhd_pub_t* dhd)
 {
 	int bcmerror = -1;
 	uint band;
-	wl_uint32_list_t *list;
-	u8 valid_chan_list[sizeof(u32)*(WL_NUMCHANNELS + 1)];
+	wl_uint32_list_t* list;
+	u8 valid_chan_list[sizeof(u32) * (WL_NUMCHANNELS + 1)];
 
 	if (!(dhd && dhd->conf)) {
 		return bcmerror;
 	}
 
 	memset(valid_chan_list, 0, sizeof(valid_chan_list));
-	list = (wl_uint32_list_t *)(void *) valid_chan_list;
+	list = (wl_uint32_list_t*)(void*)valid_chan_list;
 	list->count = htod32(WL_NUMCHANNELS);
 	if ((bcmerror = dhd_wl_ioctl_cmd(dhd, WLC_GET_VALID_CHANNELS, valid_chan_list, sizeof(valid_chan_list), FALSE, 0)) < 0) {
 		CONFIG_ERROR(("%s: get channels failed with %d\n", __FUNCTION__, bcmerror));
@@ -875,8 +891,8 @@ dhd_conf_fix_country(dhd_pub_t *dhd)
 
 	band = dhd_conf_get_band(dhd);
 
-	if (bcmerror || ((band==WLC_BAND_AUTO || band==WLC_BAND_2G) &&
-			dtoh32(list->count)<11)) {
+	if (bcmerror || ((band == WLC_BAND_AUTO || band == WLC_BAND_2G) &&
+		dtoh32(list->count) < 11)) {
 		CONFIG_ERROR(("%s: bcmerror=%d, # of channels %d\n",
 			__FUNCTION__, bcmerror, dtoh32(list->count)));
 		if ((bcmerror = dhd_conf_set_country(dhd)) < 0) {
@@ -891,7 +907,7 @@ dhd_conf_fix_country(dhd_pub_t *dhd)
 }
 
 bool
-dhd_conf_match_channel(dhd_pub_t *dhd, uint32 channel)
+dhd_conf_match_channel(dhd_pub_t* dhd, uint32 channel)
 {
 	int i;
 	bool match = false;
@@ -899,11 +915,12 @@ dhd_conf_match_channel(dhd_pub_t *dhd, uint32 channel)
 	if (dhd && dhd->conf) {
 		if (dhd->conf->channels.count == 0)
 			return true;
-		for (i=0; i<dhd->conf->channels.count; i++) {
+		for (i = 0; i < dhd->conf->channels.count; i++) {
 			if (channel == dhd->conf->channels.channel[i])
 				match = true;
 		}
-	} else {
+	}
+	else {
 		match = true;
 		CONFIG_ERROR(("%s: dhd or conf is NULL\n", __FUNCTION__));
 	}
@@ -912,10 +929,10 @@ dhd_conf_match_channel(dhd_pub_t *dhd, uint32 channel)
 }
 
 int
-dhd_conf_set_roam(dhd_pub_t *dhd)
+dhd_conf_set_roam(dhd_pub_t* dhd)
 {
 	int bcmerror = -1;
-	struct dhd_conf *conf = dhd->conf;
+	struct dhd_conf* conf = dhd->conf;
 
 	dhd_roam_disable = conf->roam_off;
 	dhd_conf_set_fw_string_cmd(dhd, "roam_off", dhd->conf->roam_off, 0, FALSE);
@@ -923,16 +940,16 @@ dhd_conf_set_roam(dhd_pub_t *dhd)
 	if (!conf->roam_off || !conf->roam_off_suspend) {
 		printf("%s: set roam_trigger %d\n", __FUNCTION__, conf->roam_trigger[0]);
 		dhd_conf_set_fw_int_struct_cmd(dhd, "WLC_SET_ROAM_TRIGGER", WLC_SET_ROAM_TRIGGER,
-				conf->roam_trigger, sizeof(conf->roam_trigger), FALSE);
+			conf->roam_trigger, sizeof(conf->roam_trigger), FALSE);
 
 		printf("%s: set roam_scan_period %d\n", __FUNCTION__, conf->roam_scan_period[0]);
 		dhd_conf_set_fw_int_struct_cmd(dhd, "WLC_SET_ROAM_SCAN_PERIOD", WLC_SET_ROAM_SCAN_PERIOD,
-				conf->roam_scan_period, sizeof(conf->roam_scan_period), FALSE);
+			conf->roam_scan_period, sizeof(conf->roam_scan_period), FALSE);
 
 		printf("%s: set roam_delta %d\n", __FUNCTION__, conf->roam_delta[0]);
 		dhd_conf_set_fw_int_struct_cmd(dhd, "WLC_SET_ROAM_DELTA", WLC_SET_ROAM_DELTA,
-				conf->roam_delta, sizeof(conf->roam_delta), FALSE);
-		
+			conf->roam_delta, sizeof(conf->roam_delta), FALSE);
+
 		dhd_conf_set_fw_string_cmd(dhd, "fullroamperiod", dhd->conf->fullroamperiod, 1, FALSE);
 	}
 
@@ -940,34 +957,34 @@ dhd_conf_set_roam(dhd_pub_t *dhd)
 }
 
 void
-dhd_conf_set_bw_cap(dhd_pub_t *dhd)
+dhd_conf_set_bw_cap(dhd_pub_t* dhd)
 {
 	struct {
 		u32 band;
 		u32 bw_cap;
-	} param = {0, 0};
+	} param = { 0, 0 };
 
 	if (dhd->conf->bw_cap_2g >= 0) {
 		param.band = WLC_BAND_2G;
 		param.bw_cap = (uint)dhd->conf->bw_cap_2g;
 		printf("%s: set bw_cap 2g %d\n", __FUNCTION__, param.bw_cap);
-		dhd_conf_set_fw_string_struct_cmd(dhd, "bw_cap", (char *)&param, sizeof(param), TRUE);
+		dhd_conf_set_fw_string_struct_cmd(dhd, "bw_cap", (char*)&param, sizeof(param), TRUE);
 	}
 
 	if (dhd->conf->bw_cap_5g >= 0) {
 		param.band = WLC_BAND_5G;
 		param.bw_cap = (uint)dhd->conf->bw_cap_5g;
 		printf("%s: set bw_cap 5g %d\n", __FUNCTION__, param.bw_cap);
-		dhd_conf_set_fw_string_struct_cmd(dhd, "bw_cap", (char *)&param, sizeof(param), TRUE);
+		dhd_conf_set_fw_string_struct_cmd(dhd, "bw_cap", (char*)&param, sizeof(param), TRUE);
 	}
 }
 
 void
-dhd_conf_get_wme(dhd_pub_t *dhd, edcf_acparam_t *acp)
+dhd_conf_get_wme(dhd_pub_t* dhd, edcf_acparam_t* acp)
 {
 	int bcmerror = -1;
 	char iovbuf[WLC_IOCTL_SMLEN];
-	edcf_acparam_t *acparam;
+	edcf_acparam_t* acparam;
 
 	bzero(iovbuf, sizeof(iovbuf));
 
@@ -980,47 +997,47 @@ dhd_conf_get_wme(dhd_pub_t *dhd, edcf_acparam_t *acp)
 		CONFIG_ERROR(("%s: wme_ac_sta getting failed %d\n", __FUNCTION__, bcmerror));
 		return;
 	}
-	memcpy((char*)acp, iovbuf, sizeof(edcf_acparam_t)*AC_COUNT);
+	memcpy((char*)acp, iovbuf, sizeof(edcf_acparam_t) * AC_COUNT);
 
 	acparam = &acp[AC_BK];
 	CONFIG_TRACE(("%s: BK: aci %d aifsn %d ecwmin %d ecwmax %d txop 0x%x\n",
 		__FUNCTION__,
-		acparam->ACI, acparam->ACI&EDCF_AIFSN_MASK,
-		acparam->ECW&EDCF_ECWMIN_MASK, (acparam->ECW&EDCF_ECWMAX_MASK)>>EDCF_ECWMAX_SHIFT,
+		acparam->ACI, acparam->ACI & EDCF_AIFSN_MASK,
+		acparam->ECW & EDCF_ECWMIN_MASK, (acparam->ECW & EDCF_ECWMAX_MASK) >> EDCF_ECWMAX_SHIFT,
 		acparam->TXOP));
 	acparam = &acp[AC_BE];
 	CONFIG_TRACE(("%s: BE: aci %d aifsn %d ecwmin %d ecwmax %d txop 0x%x\n",
 		__FUNCTION__,
-		acparam->ACI, acparam->ACI&EDCF_AIFSN_MASK,
-		acparam->ECW&EDCF_ECWMIN_MASK, (acparam->ECW&EDCF_ECWMAX_MASK)>>EDCF_ECWMAX_SHIFT,
+		acparam->ACI, acparam->ACI & EDCF_AIFSN_MASK,
+		acparam->ECW & EDCF_ECWMIN_MASK, (acparam->ECW & EDCF_ECWMAX_MASK) >> EDCF_ECWMAX_SHIFT,
 		acparam->TXOP));
 	acparam = &acp[AC_VI];
 	CONFIG_TRACE(("%s: VI: aci %d aifsn %d ecwmin %d ecwmax %d txop 0x%x\n",
 		__FUNCTION__,
-		acparam->ACI, acparam->ACI&EDCF_AIFSN_MASK,
-		acparam->ECW&EDCF_ECWMIN_MASK, (acparam->ECW&EDCF_ECWMAX_MASK)>>EDCF_ECWMAX_SHIFT,
+		acparam->ACI, acparam->ACI & EDCF_AIFSN_MASK,
+		acparam->ECW & EDCF_ECWMIN_MASK, (acparam->ECW & EDCF_ECWMAX_MASK) >> EDCF_ECWMAX_SHIFT,
 		acparam->TXOP));
 	acparam = &acp[AC_VO];
 	CONFIG_TRACE(("%s: VO: aci %d aifsn %d ecwmin %d ecwmax %d txop 0x%x\n",
 		__FUNCTION__,
-		acparam->ACI, acparam->ACI&EDCF_AIFSN_MASK,
-		acparam->ECW&EDCF_ECWMIN_MASK, (acparam->ECW&EDCF_ECWMAX_MASK)>>EDCF_ECWMAX_SHIFT,
+		acparam->ACI, acparam->ACI & EDCF_AIFSN_MASK,
+		acparam->ECW & EDCF_ECWMIN_MASK, (acparam->ECW & EDCF_ECWMAX_MASK) >> EDCF_ECWMAX_SHIFT,
 		acparam->TXOP));
 
 	return;
 }
 
 void
-dhd_conf_update_wme(dhd_pub_t *dhd, edcf_acparam_t *acparam_cur, int aci)
+dhd_conf_update_wme(dhd_pub_t* dhd, edcf_acparam_t* acparam_cur, int aci)
 {
 	int aifsn, ecwmin, ecwmax, txop;
-	edcf_acparam_t *acp;
-	struct dhd_conf *conf = dhd->conf;
+	edcf_acparam_t* acp;
+	struct dhd_conf* conf = dhd->conf;
 
 	/* Default value */
-	aifsn = acparam_cur->ACI&EDCF_AIFSN_MASK;
-	ecwmin = acparam_cur->ECW&EDCF_ECWMIN_MASK;
-	ecwmax = (acparam_cur->ECW&EDCF_ECWMAX_MASK)>>EDCF_ECWMAX_SHIFT;
+	aifsn = acparam_cur->ACI & EDCF_AIFSN_MASK;
+	ecwmin = acparam_cur->ECW & EDCF_ECWMIN_MASK;
+	ecwmax = (acparam_cur->ECW & EDCF_ECWMAX_MASK) >> EDCF_ECWMAX_SHIFT;
 	txop = acparam_cur->TXOP;
 
 	/* Modified value */
@@ -1034,7 +1051,7 @@ dhd_conf_update_wme(dhd_pub_t *dhd, edcf_acparam_t *acparam_cur, int aci)
 		txop = conf->wme.txop[aci];
 
 	if (!(conf->wme.aifsn[aci] || conf->wme.ecwmin[aci] ||
-			conf->wme.ecwmax[aci] || conf->wme.txop[aci]))
+		conf->wme.ecwmax[aci] || conf->wme.txop[aci]))
 		return;
 
 	/* Update */
@@ -1046,8 +1063,8 @@ dhd_conf_update_wme(dhd_pub_t *dhd, edcf_acparam_t *acparam_cur, int aci)
 
 	printf("%s: mod aci %d aifsn %d ecwmin %d ecwmax %d txop 0x%x\n",
 		__FUNCTION__,
-		acp->ACI, acp->ACI&EDCF_AIFSN_MASK,
-		acp->ECW&EDCF_ECWMIN_MASK, (acp->ECW&EDCF_ECWMAX_MASK)>>EDCF_ECWMAX_SHIFT,
+		acp->ACI, acp->ACI & EDCF_AIFSN_MASK,
+		acp->ECW & EDCF_ECWMIN_MASK, (acp->ECW & EDCF_ECWMAX_MASK) >> EDCF_ECWMAX_SHIFT,
 		acp->TXOP);
 
 	/*
@@ -1055,12 +1072,12 @@ dhd_conf_update_wme(dhd_pub_t *dhd, edcf_acparam_t *acparam_cur, int aci)
 	* Put WME acparams after "wme_ac\0" in buf.
 	* NOTE: only one of the four ACs can be set at a time.
 	*/
-	dhd_conf_set_fw_string_struct_cmd(dhd, "wme_ac_sta", (char *)acp, sizeof(edcf_acparam_t), FALSE);
+	dhd_conf_set_fw_string_struct_cmd(dhd, "wme_ac_sta", (char*)acp, sizeof(edcf_acparam_t), FALSE);
 
 }
 
 void
-dhd_conf_set_wme(dhd_pub_t *dhd)
+dhd_conf_set_wme(dhd_pub_t* dhd)
 {
 	edcf_acparam_t acparam_cur[AC_COUNT];
 
@@ -1081,7 +1098,8 @@ dhd_conf_set_wme(dhd_pub_t *dhd)
 
 		CONFIG_TRACE(("%s: After change:\n", __FUNCTION__));
 		dhd_conf_get_wme(dhd, acparam_cur);
-	} else {
+	}
+	else {
 		CONFIG_ERROR(("%s: dhd or conf is NULL\n", __FUNCTION__));
 	}
 
@@ -1090,7 +1108,7 @@ dhd_conf_set_wme(dhd_pub_t *dhd)
 
 #ifdef PKT_FILTER_SUPPORT
 void
-dhd_conf_add_pkt_filter(dhd_pub_t *dhd)
+dhd_conf_add_pkt_filter(dhd_pub_t* dhd)
 {
 	int i;
 	char str[12];
@@ -1100,19 +1118,19 @@ dhd_conf_add_pkt_filter(dhd_pub_t *dhd)
 	 * All pkt: pkt_filter_add=99 0 0 0 0x000000000000 0x000000000000
 	 * Netbios pkt: 120 0 0 12 0xFFFF000000000000000000FF000000000000000000000000FFFF 0x0800000000000000000000110000000000000000000000000089
 	 */
-	for(i=0; i<dhd->conf->pkt_filter_add.count; i++) {
-		dhd->pktfilter[i+dhd->pktfilter_count] = dhd->conf->pkt_filter_add.filter[i];
-		printf("%s: %s\n", __FUNCTION__, dhd->pktfilter[i+dhd->pktfilter_count]);
+	for (i = 0; i < dhd->conf->pkt_filter_add.count; i++) {
+		dhd->pktfilter[i + dhd->pktfilter_count] = dhd->conf->pkt_filter_add.filter[i];
+		printf("%s: %s\n", __FUNCTION__, dhd->pktfilter[i + dhd->pktfilter_count]);
 	}
 	dhd->pktfilter_count += i;
 
 	if (dhd->conf->pkt_filter_magic) {
 		strcpy(&dhd->conf->pkt_filter_add.filter[dhd->conf->pkt_filter_add.count][0], "256 0 0 0 0x");
-		for (i=0; i<16; i++)
+		for (i = 0; i < 16; i++)
 			strcat(&dhd->conf->pkt_filter_add.filter[dhd->conf->pkt_filter_add.count][0], "FFFFFFFFFFFF");
 		strcat(&dhd->conf->pkt_filter_add.filter[dhd->conf->pkt_filter_add.count][0], " 0x");
 		sprintf(str, MACS, MAC2STRDBG(dhd->mac.octet));
-		for (i=0; i<16; i++)
+		for (i = 0; i < 16; i++)
 			strcat(&dhd->conf->pkt_filter_add.filter[dhd->conf->pkt_filter_add.count][0], str);
 		dhd->pktfilter[dhd->pktfilter_count] = dhd->conf->pkt_filter_add.filter[dhd->conf->pkt_filter_add.count];
 		dhd->pktfilter_count += 1;
@@ -1120,12 +1138,12 @@ dhd_conf_add_pkt_filter(dhd_pub_t *dhd)
 }
 
 bool
-dhd_conf_del_pkt_filter(dhd_pub_t *dhd, uint32 id)
+dhd_conf_del_pkt_filter(dhd_pub_t* dhd, uint32 id)
 {
 	int i;
 
 	if (dhd && dhd->conf) {
-		for (i=0; i<dhd->conf->pkt_filter_del.count; i++) {
+		for (i = 0; i < dhd->conf->pkt_filter_del.count; i++) {
 			if (id == dhd->conf->pkt_filter_del.id[i]) {
 				printf("%s: %d\n", __FUNCTION__, dhd->conf->pkt_filter_del.id[i]);
 				return true;
@@ -1137,7 +1155,7 @@ dhd_conf_del_pkt_filter(dhd_pub_t *dhd, uint32 id)
 }
 
 void
-dhd_conf_discard_pkt_filter(dhd_pub_t *dhd)
+dhd_conf_discard_pkt_filter(dhd_pub_t* dhd)
 {
 	dhd->pktfilter_count = 6;
 	dhd->pktfilter[DHD_UNICAST_FILTER_NUM] = NULL;
@@ -1165,14 +1183,14 @@ dhd_conf_discard_pkt_filter(dhd_pub_t *dhd)
 #endif /* PKT_FILTER_SUPPORT */
 
 void
-dhd_conf_set_disable_proptx(dhd_pub_t *dhd)
+dhd_conf_set_disable_proptx(dhd_pub_t* dhd)
 {
 	printf("%s: set disable_proptx %d\n", __FUNCTION__, dhd->conf->disable_proptx);
 	disable_proptx = dhd->conf->disable_proptx;
 }
 
 int
-dhd_conf_get_pm(dhd_pub_t *dhd)
+dhd_conf_get_pm(dhd_pub_t* dhd)
 {
 	if (dhd && dhd->conf)
 		return dhd->conf->pm;
@@ -1180,11 +1198,11 @@ dhd_conf_get_pm(dhd_pub_t *dhd)
 }
 
 unsigned int
-process_config_vars(char *varbuf, unsigned int len, char *pickbuf, char *param)
+process_config_vars(char* varbuf, unsigned int len, char* pickbuf, char* param)
 {
-	bool findNewline, changenewline=FALSE, pick=FALSE;
+	bool findNewline, changenewline = FALSE, pick = FALSE;
 	int column;
-	unsigned int n, pick_column=0;
+	unsigned int n, pick_column = 0;
 
 	findNewline = FALSE;
 	column = 0;
@@ -1213,13 +1231,14 @@ process_config_vars(char *varbuf, unsigned int len, char *pickbuf, char *param)
 			changenewline = FALSE;
 			continue;
 		}
-		if (!memcmp(&varbuf[n], param, strlen(param)) && column==0) {
+		if (!memcmp(&varbuf[n], param, strlen(param)) && column == 0) {
 			pick = TRUE;
 			column = strlen(param);
 			n += column;
 			pick_column = 0;
-		} else {
-			if (pick && column==0)
+		}
+		else {
+			if (pick && column == 0)
 				pick = FALSE;
 			else
 				column++;
@@ -1227,7 +1246,7 @@ process_config_vars(char *varbuf, unsigned int len, char *pickbuf, char *param)
 		if (pick) {
 			if (varbuf[n] == 0x9)
 				continue;
-			if (pick_column>0 && pickbuf[pick_column-1]==' ' && varbuf[n]==' ')
+			if (pick_column > 0 && pickbuf[pick_column - 1] == ' ' && varbuf[n] == ' ')
 				continue;
 			pickbuf[pick_column] = varbuf[n];
 			pick_column++;
@@ -1238,10 +1257,10 @@ process_config_vars(char *varbuf, unsigned int len, char *pickbuf, char *param)
 }
 
 void
-dhd_conf_read_log_level(dhd_pub_t *dhd, char *bufp, uint len)
+dhd_conf_read_log_level(dhd_pub_t* dhd, char* bufp, uint len)
 {
 	uint len_val;
-	char *pick;
+	char* pick;
 
 	pick = MALLOC(dhd->osh, MAXSZ_BUF);
 	if (!pick) {
@@ -1314,35 +1333,35 @@ dhd_conf_read_log_level(dhd_pub_t *dhd, char *bufp, uint len)
 }
 
 void
-dhd_conf_read_wme_ac_value(dhd_pub_t *dhd, char *pick, uint len, int ac_val)
+dhd_conf_read_wme_ac_value(dhd_pub_t* dhd, char* pick, uint len, int ac_val)
 {
-	char *pick_tmp, *pch;
-	struct dhd_conf *conf = dhd->conf;
+	char* pick_tmp, * pch;
+	struct dhd_conf* conf = dhd->conf;
 
 	/* Process WMM parameters */
 	if (len) {
 		pick_tmp = pick;
 		pch = bcmstrstr(pick_tmp, "aifsn ");
 		if (pch) {
-			conf->wme.aifsn[ac_val] = (int)simple_strtol(pch+strlen("aifsn "), NULL, 0);
+			conf->wme.aifsn[ac_val] = (int)simple_strtol(pch + strlen("aifsn "), NULL, 0);
 			printf("%s: ac_val=%d, aifsn=%d\n", __FUNCTION__, ac_val, conf->wme.aifsn[ac_val]);
 		}
 		pick_tmp = pick;
 		pch = bcmstrstr(pick_tmp, "ecwmin ");
 		if (pch) {
-			conf->wme.ecwmin[ac_val] = (int)simple_strtol(pch+strlen("ecwmin "), NULL, 0);
+			conf->wme.ecwmin[ac_val] = (int)simple_strtol(pch + strlen("ecwmin "), NULL, 0);
 			printf("%s: ac_val=%d, ecwmin=%d\n", __FUNCTION__, ac_val, conf->wme.ecwmin[ac_val]);
 		}
 		pick_tmp = pick;
 		pch = bcmstrstr(pick_tmp, "ecwmax ");
 		if (pch) {
-			conf->wme.ecwmax[ac_val] = (int)simple_strtol(pch+strlen("ecwmax "), NULL, 0);
+			conf->wme.ecwmax[ac_val] = (int)simple_strtol(pch + strlen("ecwmax "), NULL, 0);
 			printf("%s: ac_val=%d, ecwmax=%d\n", __FUNCTION__, ac_val, conf->wme.ecwmax[ac_val]);
 		}
 		pick_tmp = pick;
 		pch = bcmstrstr(pick_tmp, "txop ");
 		if (pch) {
-			conf->wme.txop[ac_val] = (int)simple_strtol(pch+strlen("txop "), NULL, 0);
+			conf->wme.txop[ac_val] = (int)simple_strtol(pch + strlen("txop "), NULL, 0);
 			printf("%s: ac_val=%d, txop=0x%x\n", __FUNCTION__, ac_val, conf->wme.txop[ac_val]);
 		}
 	}
@@ -1350,11 +1369,11 @@ dhd_conf_read_wme_ac_value(dhd_pub_t *dhd, char *pick, uint len, int ac_val)
 }
 
 void
-dhd_conf_read_wme_ac_params(dhd_pub_t *dhd, char *bufp, uint len)
+dhd_conf_read_wme_ac_params(dhd_pub_t* dhd, char* bufp, uint len)
 {
 	uint len_val;
-	char *pick;
-	struct dhd_conf *conf = dhd->conf;
+	char* pick;
+	struct dhd_conf* conf = dhd->conf;
 
 	pick = MALLOC(dhd->osh, MAXSZ_BUF);
 	if (!pick) {
@@ -1403,15 +1422,15 @@ dhd_conf_read_wme_ac_params(dhd_pub_t *dhd, char *bufp, uint len)
 }
 
 void
-dhd_conf_read_fw_by_mac(dhd_pub_t *dhd, char *bufp, uint len)
+dhd_conf_read_fw_by_mac(dhd_pub_t* dhd, char* bufp, uint len)
 {
 	uint len_val;
 	int i, j;
-	char *pick;
-	char *pch, *pick_tmp;
-	wl_mac_list_t *mac_list;
-	wl_mac_range_t *mac_range;
-	struct dhd_conf *conf = dhd->conf;
+	char* pick;
+	char* pch, * pick_tmp;
+	wl_mac_list_t* mac_list;
+	wl_mac_range_t* mac_range;
+	struct dhd_conf* conf = dhd->conf;
 
 	pick = MALLOC(dhd->osh, MAXSZ_BUF);
 	if (!pick) {
@@ -1439,26 +1458,26 @@ dhd_conf_read_fw_by_mac(dhd_pub_t *dhd, char *bufp, uint len)
 		pick_tmp = pick;
 		pch = bcmstrtok(&pick_tmp, " ", 0);
 		conf->fw_by_mac.count = (uint32)simple_strtol(pch, NULL, 0);
-		if (!(mac_list = kmalloc(sizeof(wl_mac_list_t)*conf->fw_by_mac.count, GFP_KERNEL))) {
+		if (!(mac_list = kmalloc(sizeof(wl_mac_list_t) * conf->fw_by_mac.count, GFP_KERNEL))) {
 			conf->fw_by_mac.count = 0;
 			CONFIG_ERROR(("%s: kmalloc failed\n", __FUNCTION__));
 		}
 		printf("%s: fw_count=%d\n", __FUNCTION__, conf->fw_by_mac.count);
 		conf->fw_by_mac.m_mac_list_head = mac_list;
-		for (i=0; i<conf->fw_by_mac.count; i++) {
+		for (i = 0; i < conf->fw_by_mac.count; i++) {
 			pch = bcmstrtok(&pick_tmp, " ", 0);
 			strcpy(mac_list[i].name, pch);
 			pch = bcmstrtok(&pick_tmp, " ", 0);
 			mac_list[i].count = (uint32)simple_strtol(pch, NULL, 0);
 			printf("%s: name=%s, mac_count=%d\n", __FUNCTION__,
 				mac_list[i].name, mac_list[i].count);
-			if (!(mac_range = kmalloc(sizeof(wl_mac_range_t)*mac_list[i].count, GFP_KERNEL))) {
+			if (!(mac_range = kmalloc(sizeof(wl_mac_range_t) * mac_list[i].count, GFP_KERNEL))) {
 				mac_list[i].count = 0;
 				CONFIG_ERROR(("%s: kmalloc failed\n", __FUNCTION__));
 				break;
 			}
 			mac_list[i].mac = mac_range;
-			for (j=0; j<mac_list[i].count; j++) {
+			for (j = 0; j < mac_list[i].count; j++) {
 				pch = bcmstrtok(&pick_tmp, " ", 0);
 				mac_range[j].oui = (uint32)simple_strtol(pch, NULL, 0);
 				pch = bcmstrtok(&pick_tmp, " ", 0);
@@ -1477,15 +1496,15 @@ dhd_conf_read_fw_by_mac(dhd_pub_t *dhd, char *bufp, uint len)
 }
 
 void
-dhd_conf_read_nv_by_mac(dhd_pub_t *dhd, char *bufp, uint len)
+dhd_conf_read_nv_by_mac(dhd_pub_t* dhd, char* bufp, uint len)
 {
 	uint len_val;
 	int i, j;
-	char *pick;
-	char *pch, *pick_tmp;
-	wl_mac_list_t *mac_list;
-	wl_mac_range_t *mac_range;
-	struct dhd_conf *conf = dhd->conf;
+	char* pick;
+	char* pch, * pick_tmp;
+	wl_mac_list_t* mac_list;
+	wl_mac_range_t* mac_range;
+	struct dhd_conf* conf = dhd->conf;
 
 	pick = MALLOC(dhd->osh, MAXSZ_BUF);
 	if (!pick) {
@@ -1503,26 +1522,26 @@ dhd_conf_read_nv_by_mac(dhd_pub_t *dhd, char *bufp, uint len)
 		pick_tmp = pick;
 		pch = bcmstrtok(&pick_tmp, " ", 0);
 		conf->nv_by_mac.count = (uint32)simple_strtol(pch, NULL, 0);
-		if (!(mac_list = kmalloc(sizeof(wl_mac_list_t)*conf->nv_by_mac.count, GFP_KERNEL))) {
+		if (!(mac_list = kmalloc(sizeof(wl_mac_list_t) * conf->nv_by_mac.count, GFP_KERNEL))) {
 			conf->nv_by_mac.count = 0;
 			CONFIG_ERROR(("%s: kmalloc failed\n", __FUNCTION__));
 		}
 		printf("%s: nv_count=%d\n", __FUNCTION__, conf->nv_by_mac.count);
 		conf->nv_by_mac.m_mac_list_head = mac_list;
-		for (i=0; i<conf->nv_by_mac.count; i++) {
+		for (i = 0; i < conf->nv_by_mac.count; i++) {
 			pch = bcmstrtok(&pick_tmp, " ", 0);
 			strcpy(mac_list[i].name, pch);
 			pch = bcmstrtok(&pick_tmp, " ", 0);
 			mac_list[i].count = (uint32)simple_strtol(pch, NULL, 0);
 			printf("%s: name=%s, mac_count=%d\n", __FUNCTION__,
 				mac_list[i].name, mac_list[i].count);
-			if (!(mac_range = kmalloc(sizeof(wl_mac_range_t)*mac_list[i].count, GFP_KERNEL))) {
+			if (!(mac_range = kmalloc(sizeof(wl_mac_range_t) * mac_list[i].count, GFP_KERNEL))) {
 				mac_list[i].count = 0;
 				CONFIG_ERROR(("%s: kmalloc failed\n", __FUNCTION__));
 				break;
 			}
 			mac_list[i].mac = mac_range;
-			for (j=0; j<mac_list[i].count; j++) {
+			for (j = 0; j < mac_list[i].count; j++) {
 				pch = bcmstrtok(&pick_tmp, " ", 0);
 				mac_range[j].oui = (uint32)simple_strtol(pch, NULL, 0);
 				pch = bcmstrtok(&pick_tmp, " ", 0);
@@ -1541,14 +1560,14 @@ dhd_conf_read_nv_by_mac(dhd_pub_t *dhd, char *bufp, uint len)
 }
 
 void
-dhd_conf_read_nv_by_chip(dhd_pub_t *dhd, char *bufp, uint len)
+dhd_conf_read_nv_by_chip(dhd_pub_t* dhd, char* bufp, uint len)
 {
 	uint len_val;
 	int i;
-	char *pick;
-	char *pch, *pick_tmp;
-	wl_chip_nv_path_t *chip_nv_path;
-	struct dhd_conf *conf = dhd->conf;
+	char* pick;
+	char* pch, * pick_tmp;
+	wl_chip_nv_path_t* chip_nv_path;
+	struct dhd_conf* conf = dhd->conf;
 
 	pick = MALLOC(dhd->osh, MAXSZ_BUF);
 	if (!pick) {
@@ -1569,13 +1588,13 @@ dhd_conf_read_nv_by_chip(dhd_pub_t *dhd, char *bufp, uint len)
 		pick_tmp = pick;
 		pch = bcmstrtok(&pick_tmp, " ", 0);
 		conf->nv_by_chip.count = (uint32)simple_strtol(pch, NULL, 0);
-		if (!(chip_nv_path = kmalloc(sizeof(wl_mac_list_t)*conf->nv_by_chip.count, GFP_KERNEL))) {
+		if (!(chip_nv_path = kmalloc(sizeof(wl_mac_list_t) * conf->nv_by_chip.count, GFP_KERNEL))) {
 			conf->nv_by_chip.count = 0;
 			CONFIG_ERROR(("%s: kmalloc failed\n", __FUNCTION__));
 		}
 		printf("%s: nv_by_chip_count=%d\n", __FUNCTION__, conf->nv_by_chip.count);
 		conf->nv_by_chip.m_chip_nv_path_head = chip_nv_path;
-		for (i=0; i<conf->nv_by_chip.count; i++) {
+		for (i = 0; i < conf->nv_by_chip.count; i++) {
 			pch = bcmstrtok(&pick_tmp, " ", 0);
 			chip_nv_path[i].chip = (uint32)simple_strtol(pch, NULL, 0);
 			pch = bcmstrtok(&pick_tmp, " ", 0);
@@ -1592,11 +1611,11 @@ dhd_conf_read_nv_by_chip(dhd_pub_t *dhd, char *bufp, uint len)
 }
 
 void
-dhd_conf_read_roam_params(dhd_pub_t *dhd, char *bufp, uint len)
+dhd_conf_read_roam_params(dhd_pub_t* dhd, char* bufp, uint len)
 {
 	uint len_val;
-	char *pick;
-	struct dhd_conf *conf = dhd->conf;
+	char* pick;
+	struct dhd_conf* conf = dhd->conf;
 
 	pick = MALLOC(dhd->osh, MAXSZ_BUF);
 	if (!pick) {
@@ -1662,12 +1681,12 @@ dhd_conf_read_roam_params(dhd_pub_t *dhd, char *bufp, uint len)
 }
 
 void
-dhd_conf_read_country_list(dhd_pub_t *dhd, char *bufp, uint len)
+dhd_conf_read_country_list(dhd_pub_t* dhd, char* bufp, uint len)
 {
 	uint len_val;
 	int i;
-	char *pick, *pch, *pick_tmp;
-	struct dhd_conf *conf = dhd->conf;
+	char* pick, * pch, * pick_tmp;
+	struct dhd_conf* conf = dhd->conf;
 
 	pick = MALLOC(dhd->osh, MAXSZ_BUF);
 	if (!pick) {
@@ -1685,7 +1704,7 @@ dhd_conf_read_country_list(dhd_pub_t *dhd, char *bufp, uint len)
 	len_val = process_config_vars(bufp, len, pick, "country_list=");
 	if (len_val) {
 		pick_tmp = pick;
-		for (i=0; i<CONFIG_COUNTRY_LIST_SIZE; i++) {
+		for (i = 0; i < CONFIG_COUNTRY_LIST_SIZE; i++) {
 			/* Process country code */
 			pch = bcmstrtok(&pick_tmp, ":", 0);
 			if (!pch)
@@ -1699,7 +1718,7 @@ dhd_conf_read_country_list(dhd_pub_t *dhd, char *bufp, uint len)
 			if (!pch)
 				break;
 			conf->country_list.cspec[i].rev = (int32)simple_strtol(pch, NULL, 10);
-			conf->country_list.count ++;
+			conf->country_list.count++;
 			CONFIG_TRACE(("%s: country_list abbrev=%s, ccode=%s, regrev=%d\n", __FUNCTION__,
 				conf->country_list.cspec[i].country_abbrev,
 				conf->country_list.cspec[i].ccode,
@@ -1713,15 +1732,15 @@ dhd_conf_read_country_list(dhd_pub_t *dhd, char *bufp, uint len)
 }
 
 int
-dhd_conf_read_config(dhd_pub_t *dhd, char *conf_path)
+dhd_conf_read_config(dhd_pub_t* dhd, char* conf_path)
 {
 	int bcmerror = -1, i;
 	uint len, len_val;
-	void * image = NULL;
-	char * memblock = NULL;
-	char *bufp, *pick = NULL, *pch, *pick_tmp;
+	void* image = NULL;
+	char* memblock = NULL;
+	char* bufp, * pick = NULL, * pch, * pick_tmp;
 	bool conf_file_exists;
-	struct dhd_conf *conf = dhd->conf;
+	struct dhd_conf* conf = dhd->conf;
 
 	conf_file_exists = ((conf_path != NULL) && (conf_path[0] != '\0'));
 	if (!conf_file_exists) {
@@ -1756,7 +1775,7 @@ dhd_conf_read_config(dhd_pub_t *dhd, char *conf_path)
 		len = dhd_os_get_image_block(memblock, MAXSZ_CONFIG, image);
 	}
 	if (len > 0 && len < MAXSZ_CONFIG) {
-		bufp = (char *)memblock;
+		bufp = (char*)memblock;
 		bufp[len] = 0;
 
 		/* Process log_level */
@@ -1826,15 +1845,15 @@ dhd_conf_read_config(dhd_pub_t *dhd, char *conf_path)
 		pick_tmp = pick;
 		if (len_val) {
 			pch = bcmstrtok(&pick_tmp, " ,.-", 0);
-			i=0;
-			while (pch != NULL && i<WL_NUMCHANNELS) {
+			i = 0;
+			while (pch != NULL && i < WL_NUMCHANNELS) {
 				conf->channels.channel[i] = (uint32)simple_strtol(pch, NULL, 10);
 				pch = bcmstrtok(&pick_tmp, " ,.-", 0);
 				i++;
 			}
 			conf->channels.count = i;
 			printf("%s: channels = ", __FUNCTION__);
-			for (i=0; i<conf->channels.count; i++)
+			for (i = 0; i < conf->channels.count; i++)
 				printf("%d ", conf->channels.channel[i]);
 			printf("\n");
 		}
@@ -1908,8 +1927,8 @@ dhd_conf_read_config(dhd_pub_t *dhd, char *conf_path)
 		pick_tmp = pick;
 		if (len_val) {
 			pch = bcmstrtok(&pick_tmp, ",.-", 0);
-			i=0;
-			while (pch != NULL && i<DHD_CONF_FILTER_MAX) {
+			i = 0;
+			while (pch != NULL && i < DHD_CONF_FILTER_MAX) {
 				strcpy(&conf->pkt_filter_add.filter[i][0], pch);
 				printf("%s: pkt_filter_add[%d][] = %s\n", __FUNCTION__, i, &conf->pkt_filter_add.filter[i][0]);
 				pch = bcmstrtok(&pick_tmp, ",.-", 0);
@@ -1924,15 +1943,15 @@ dhd_conf_read_config(dhd_pub_t *dhd, char *conf_path)
 		pick_tmp = pick;
 		if (len_val) {
 			pch = bcmstrtok(&pick_tmp, " ,.-", 0);
-			i=0;
-			while (pch != NULL && i<DHD_CONF_FILTER_MAX) {
+			i = 0;
+			while (pch != NULL && i < DHD_CONF_FILTER_MAX) {
 				conf->pkt_filter_del.id[i] = (uint32)simple_strtol(pch, NULL, 10);
 				pch = bcmstrtok(&pick_tmp, " ,.-", 0);
 				i++;
 			}
 			conf->pkt_filter_del.count = i;
 			printf("%s: pkt_filter_del id = ", __FUNCTION__);
-			for (i=0; i<conf->pkt_filter_del.count; i++)
+			for (i = 0; i < conf->pkt_filter_del.count; i++)
 				printf("%d ", conf->pkt_filter_del.id[i]);
 			printf("\n");
 		}
@@ -1969,7 +1988,7 @@ dhd_conf_read_config(dhd_pub_t *dhd, char *conf_path)
 		memset(pick, 0, MAXSZ_BUF);
 		len_val = process_config_vars(bufp, len, pick, "bcn_timeout=");
 		if (len_val) {
-			conf->bcn_timeout= (uint)simple_strtol(pick, NULL, 10);
+			conf->bcn_timeout = (uint)simple_strtol(pick, NULL, 10);
 			printf("%s: bcn_timeout = %d\n", __FUNCTION__, conf->bcn_timeout);
 		}
 
@@ -2076,7 +2095,7 @@ dhd_conf_read_config(dhd_pub_t *dhd, char *conf_path)
 				if ((conf->chip == BCM43362_CHIP_ID) || (conf->chip == BCM4330_CHIP_ID))
 					conf->txglom_bucket_size = 1680;
 				else if (conf->chip == BCM43340_CHIP_ID || conf->chip == BCM43341_CHIP_ID ||
-						conf->chip == BCM4334_CHIP_ID || conf->chip == BCM4324_CHIP_ID)
+					conf->chip == BCM4334_CHIP_ID || conf->chip == BCM4324_CHIP_ID)
 					conf->txglom_bucket_size = 1684;
 			}
 			printf("%s: txglom_bucket_size = %d\n", __FUNCTION__, conf->txglom_bucket_size);
@@ -2260,7 +2279,8 @@ dhd_conf_read_config(dhd_pub_t *dhd, char *conf_path)
 		}
 
 		bcmerror = 0;
-	} else {
+	}
+	else {
 		CONFIG_ERROR(("%s: error reading config file: %d\n", __FUNCTION__, len));
 		bcmerror = BCME_SDIO_ERROR;
 	}
@@ -2279,7 +2299,7 @@ err:
 }
 
 int
-dhd_conf_set_chiprev(dhd_pub_t *dhd, uint chip, uint chiprev)
+dhd_conf_set_chiprev(dhd_pub_t* dhd, uint chip, uint chiprev)
 {
 	printf("%s: chip=0x%x, chiprev=%d\n", __FUNCTION__, chip, chiprev);
 	dhd->conf->chip = chip;
@@ -2288,9 +2308,9 @@ dhd_conf_set_chiprev(dhd_pub_t *dhd, uint chip, uint chiprev)
 }
 
 uint
-dhd_conf_get_chip(void *context)
+dhd_conf_get_chip(void* context)
 {
-	dhd_pub_t *dhd = context;
+	dhd_pub_t* dhd = context;
 
 	if (dhd && dhd->conf)
 		return dhd->conf->chip;
@@ -2298,9 +2318,9 @@ dhd_conf_get_chip(void *context)
 }
 
 uint
-dhd_conf_get_chiprev(void *context)
+dhd_conf_get_chiprev(void* context)
 {
-	dhd_pub_t *dhd = context;
+	dhd_pub_t* dhd = context;
 
 	if (dhd && dhd->conf)
 		return dhd->conf->chiprev;
@@ -2309,15 +2329,15 @@ dhd_conf_get_chiprev(void *context)
 
 #ifdef BCMSDIO
 void
-dhd_conf_set_txglom_params(dhd_pub_t *dhd, bool enable)
+dhd_conf_set_txglom_params(dhd_pub_t* dhd, bool enable)
 {
-	struct dhd_conf *conf = dhd->conf;
+	struct dhd_conf* conf = dhd->conf;
 
 	if (enable) {
 #if defined(SWTXGLOM)
 		if (conf->chip == BCM43362_CHIP_ID || conf->chip == BCM4330_CHIP_ID ||
-				conf->chip == BCM43340_CHIP_ID || conf->chip == BCM43341_CHIP_ID ||
-				conf->chip == BCM4334_CHIP_ID || conf->chip == BCM4324_CHIP_ID) {
+			conf->chip == BCM43340_CHIP_ID || conf->chip == BCM43341_CHIP_ID ||
+			conf->chip == BCM4334_CHIP_ID || conf->chip == BCM4324_CHIP_ID) {
 			// 43362/4330/4334/43340/43341/43241 must use 1.88.45.x swtxglom if txglom_ext is true, since 1.201.59 not support swtxglom
 			conf->swtxglom = TRUE;
 			conf->txglom_ext = TRUE;
@@ -2327,13 +2347,14 @@ dhd_conf_set_txglom_params(dhd_pub_t *dhd, bool enable)
 		}
 #elif defined(BCMSDIOH_TXGLOM_EXT)
 		if (conf->chip == BCM43362_CHIP_ID || conf->chip == BCM4330_CHIP_ID ||
-				conf->chip == BCM43340_CHIP_ID || conf->chip == BCM43341_CHIP_ID ||
-				conf->chip == BCM4334_CHIP_ID || conf->chip == BCM4324_CHIP_ID) {
+			conf->chip == BCM43340_CHIP_ID || conf->chip == BCM43341_CHIP_ID ||
+			conf->chip == BCM4334_CHIP_ID || conf->chip == BCM4324_CHIP_ID) {
 			conf->txglom_mode = SDPCM_TXGLOM_CPY;
 		}
 #endif
 		// other parameters set in preinit or config.txt
-	} else {
+	}
+	else {
 		// clear txglom parameters, but don't change swtxglom since it's possible enabled in config.txt
 		conf->txglom_ext = FALSE;
 		conf->txglom_bucket_size = 0;
@@ -2352,9 +2373,9 @@ dhd_conf_set_txglom_params(dhd_pub_t *dhd, bool enable)
 #endif
 
 int
-dhd_conf_preinit(dhd_pub_t *dhd)
+dhd_conf_preinit(dhd_pub_t* dhd)
 {
-	struct dhd_conf *conf = dhd->conf;
+	struct dhd_conf* conf = dhd->conf;
 
 	CONFIG_TRACE(("%s: Enter\n", __FUNCTION__));
 
@@ -2372,14 +2393,16 @@ dhd_conf_preinit(dhd_pub_t *dhd)
 		strcpy(conf->cspec.country_abbrev, "ALL");
 		strcpy(conf->cspec.ccode, "ALL");
 		conf->cspec.rev = 0;
-	} else if (conf->chip == BCM4335_CHIP_ID || conf->chip == BCM4339_CHIP_ID ||
-			conf->chip == BCM4354_CHIP_ID || conf->chip == BCM4356_CHIP_ID ||
-			conf->chip == BCM4345_CHIP_ID || conf->chip == BCM4371_CHIP_ID ||
-			conf->chip == BCM4359_CHIP_ID) {
+	}
+	else if (conf->chip == BCM4335_CHIP_ID || conf->chip == BCM4339_CHIP_ID ||
+		conf->chip == BCM4354_CHIP_ID || conf->chip == BCM4356_CHIP_ID ||
+		conf->chip == BCM4345_CHIP_ID || conf->chip == BCM4371_CHIP_ID ||
+		conf->chip == BCM4359_CHIP_ID) {
 		strcpy(conf->cspec.country_abbrev, "CN");
 		strcpy(conf->cspec.ccode, "CN");
 		conf->cspec.rev = 38;
-	} else {
+	}
+	else {
 		strcpy(conf->cspec.country_abbrev, "CN");
 		strcpy(conf->cspec.ccode, "CN");
 		conf->cspec.rev = 0;
@@ -2477,13 +2500,14 @@ dhd_conf_preinit(dhd_pub_t *dhd)
 #ifdef BCMSDIO
 #if defined(SWTXGLOM)
 	if (conf->chip == BCM43362_CHIP_ID || conf->chip == BCM4330_CHIP_ID ||
-			conf->chip == BCM43340_CHIP_ID || conf->chip == BCM43341_CHIP_ID ||
-			conf->chip == BCM4334_CHIP_ID || conf->chip == BCM4324_CHIP_ID) {
+		conf->chip == BCM43340_CHIP_ID || conf->chip == BCM43341_CHIP_ID ||
+		conf->chip == BCM4334_CHIP_ID || conf->chip == BCM4324_CHIP_ID) {
 		conf->swtxglom = FALSE; // disabled by default
 		conf->txglom_ext = TRUE; // enabled by default
 		conf->use_rxchain = 0; // use_rxchain have been disabled if swtxglom enabled
 		conf->txglomsize = 16;
-	} else {
+	}
+	else {
 		conf->swtxglom = FALSE; // use 1.201.59.x txglom by default
 		conf->txglom_ext = FALSE;
 	}
@@ -2516,13 +2540,14 @@ dhd_conf_preinit(dhd_pub_t *dhd)
 #endif
 #if defined(BCMSDIOH_TXGLOM_EXT)
 	if (conf->chip == BCM43362_CHIP_ID || conf->chip == BCM4330_CHIP_ID ||
-			conf->chip == BCM43340_CHIP_ID || conf->chip == BCM43341_CHIP_ID ||
-			conf->chip == BCM4334_CHIP_ID || conf->chip == BCM4324_CHIP_ID) {
+		conf->chip == BCM43340_CHIP_ID || conf->chip == BCM43341_CHIP_ID ||
+		conf->chip == BCM4334_CHIP_ID || conf->chip == BCM4324_CHIP_ID) {
 		conf->txglom_ext = TRUE;
 		conf->use_rxchain = 0;
 		conf->tx_in_rx = TRUE;
 		conf->tx_max_offset = 1;
-	} else {
+	}
+	else {
 		conf->txglom_ext = FALSE;
 	}
 	if (conf->chip == BCM43362_CHIP_ID || conf->chip == BCM4330_CHIP_ID) {
@@ -2530,7 +2555,7 @@ dhd_conf_preinit(dhd_pub_t *dhd)
 		conf->txglomsize = 6;
 	}
 	if (conf->chip == BCM4334_CHIP_ID || conf->chip == BCM43340_CHIP_ID ||
-			conf->chip == BCM43341_CHIP_ID || conf->chip == BCM4324_CHIP_ID) {
+		conf->chip == BCM43341_CHIP_ID || conf->chip == BCM4324_CHIP_ID) {
 		conf->txglom_bucket_size = 1684; // fixed value, don't change
 		conf->txglomsize = 16;
 	}
@@ -2544,7 +2569,7 @@ dhd_conf_preinit(dhd_pub_t *dhd)
 }
 
 int
-dhd_conf_reset(dhd_pub_t *dhd)
+dhd_conf_reset(dhd_pub_t* dhd)
 {
 #ifdef BCMSDIO
 	dhd_conf_free_mac_list(&dhd->conf->fw_by_mac);
@@ -2556,9 +2581,9 @@ dhd_conf_reset(dhd_pub_t *dhd)
 }
 
 int
-dhd_conf_attach(dhd_pub_t *dhd)
+dhd_conf_attach(dhd_pub_t* dhd)
 {
-	dhd_conf_t *conf;
+	dhd_conf_t* conf;
 
 	CONFIG_TRACE(("%s: Enter\n", __FUNCTION__));
 
@@ -2584,7 +2609,7 @@ fail:
 }
 
 void
-dhd_conf_detach(dhd_pub_t *dhd)
+dhd_conf_detach(dhd_pub_t* dhd)
 {
 	CONFIG_TRACE(("%s: Enter\n", __FUNCTION__));
 

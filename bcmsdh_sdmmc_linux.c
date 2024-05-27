@@ -2,13 +2,13 @@
  * BCMSDH Function Driver for the native SDIO/MMC driver in the Linux Kernel
  *
  * Copyright (C) 1999-2014, Broadcom Corporation
- * 
+ *
  *      Unless you and Broadcom execute a separate written software license
  * agreement governing use of this software, this software is licensed to you
  * under the terms of the GNU General Public License version 2 (the "GPL"),
  * available at http://www.broadcom.com/licenses/GPLv2.php, with the
  * following added to such license:
- * 
+ *
  *      As a special exception, the copyright holders of this software give you
  * permission to link this software with independent modules, and to copy and
  * distribute the resulting executable under terms of your choice, provided that
@@ -16,7 +16,7 @@
  * the license of that module.  An independent module is a module which is not
  * derived from this software.  The special exception does not apply to any
  * modifications of the software.
- * 
+ *
  *      Notwithstanding the above, under no circumstances may you combine this
  * software in any way with any other Broadcom software provided under a license
  * other than the GPL, without Broadcom's express prior written consent.
@@ -71,13 +71,16 @@
 #if !defined(SDIO_DEVICE_ID_BROADCOM_43239)
 #define SDIO_DEVICE_ID_BROADCOM_43239    43239
 #endif /* !defined(SDIO_DEVICE_ID_BROADCOM_43239) */
+#if !defined(SDIO_DEVICE_ID_BROADCOM_43430)
+#define SDIO_DEVICE_ID_BROADCOM_43430    43430
+#endif /* !defined(SDIO_DEVICE_ID_BROADCOM_43430) */
 
-extern void wl_cfg80211_set_parent_dev(void *dev);
-extern void sdioh_sdmmc_devintr_off(sdioh_info_t *sd);
-extern void sdioh_sdmmc_devintr_on(sdioh_info_t *sd);
-extern void* bcmsdh_probe(osl_t *osh, void *dev, void *sdioh, void *adapter_info, uint bus_type,
+extern void wl_cfg80211_set_parent_dev(void* dev);
+extern void sdioh_sdmmc_devintr_off(sdioh_info_t* sd);
+extern void sdioh_sdmmc_devintr_on(sdioh_info_t* sd);
+extern void* bcmsdh_probe(osl_t* osh, void* dev, void* sdioh, void* adapter_info, uint bus_type,
 	uint bus_num, uint slot_num);
-extern int bcmsdh_remove(bcmsdh_info_t *bcmsdh);
+extern int bcmsdh_remove(bcmsdh_info_t* bcmsdh);
 
 int sdio_function_init(void);
 void sdio_function_cleanup(void);
@@ -100,13 +103,13 @@ PBCMSDH_SDMMC_INSTANCE gInstance;
 
 extern volatile bool dhd_mmc_suspend;
 
-static int sdioh_probe(struct sdio_func *func)
+static int sdioh_probe(struct sdio_func* func)
 {
 	int host_idx = func->card->host->index;
 	uint32 rca = func->card->rca;
-	wifi_adapter_info_t *adapter;
-	osl_t *osh = NULL;
-	sdioh_info_t *sdioh = NULL;
+	wifi_adapter_info_t* adapter;
+	osl_t* osh = NULL;
+	sdioh_info_t* sdioh = NULL;
 
 	sd_err(("bus num (host idx)=%d, slot num (rca)=%d\n", host_idx, rca));
 	adapter = dhd_wifi_platform_get_adapter(SDIO_BUS, host_idx, rca);
@@ -115,30 +118,31 @@ static int sdioh_probe(struct sdio_func *func)
 #ifdef BUS_POWER_RESTORE
 		adapter->sdio_func = func;
 #endif
-	} else
+	}
+	else
 		sd_err(("can't find adapter info for this chip\n"));
 
 #ifdef WL_CFG80211
 	wl_cfg80211_set_parent_dev(&func->dev);
 #endif
 
-	 /* allocate SDIO Host Controller state info */
-	 osh = osl_attach(&func->dev, SDIO_BUS, TRUE);
-	 if (osh == NULL) {
-		 sd_err(("%s: osl_attach failed\n", __FUNCTION__));
-		 goto fail;
-	 }
-	 osl_static_mem_init(osh, adapter);
-	 sdioh = sdioh_attach(osh, func);
-	 if (sdioh == NULL) {
-		 sd_err(("%s: sdioh_attach failed\n", __FUNCTION__));
-		 goto fail;
-	 }
-	 sdioh->bcmsdh = bcmsdh_probe(osh, &func->dev, sdioh, adapter, SDIO_BUS, host_idx, rca);
-	 if (sdioh->bcmsdh == NULL) {
-		 sd_err(("%s: bcmsdh_probe failed\n", __FUNCTION__));
-		 goto fail;
-	 }
+	/* allocate SDIO Host Controller state info */
+	osh = osl_attach(&func->dev, SDIO_BUS, TRUE);
+	if (osh == NULL) {
+		sd_err(("%s: osl_attach failed\n", __FUNCTION__));
+		goto fail;
+	}
+	osl_static_mem_init(osh, adapter);
+	sdioh = sdioh_attach(osh, func);
+	if (sdioh == NULL) {
+		sd_err(("%s: sdioh_attach failed\n", __FUNCTION__));
+		goto fail;
+	}
+	sdioh->bcmsdh = bcmsdh_probe(osh, &func->dev, sdioh, adapter, SDIO_BUS, host_idx, rca);
+	if (sdioh->bcmsdh == NULL) {
+		sd_err(("%s: bcmsdh_probe failed\n", __FUNCTION__));
+		goto fail;
+	}
 
 	sdio_set_drvdata(func, sdioh);
 	return 0;
@@ -151,10 +155,10 @@ fail:
 	return -ENOMEM;
 }
 
-static void sdioh_remove(struct sdio_func *func)
+static void sdioh_remove(struct sdio_func* func)
 {
-	sdioh_info_t *sdioh;
-	osl_t *osh;
+	sdioh_info_t* sdioh;
+	osl_t* osh;
 
 	sdioh = sdio_get_drvdata(func);
 	if (sdioh == NULL) {
@@ -169,8 +173,8 @@ static void sdioh_remove(struct sdio_func *func)
 	osl_detach(osh);
 }
 
-static int bcmsdh_sdmmc_probe(struct sdio_func *func,
-                              const struct sdio_device_id *id)
+static int bcmsdh_sdmmc_probe(struct sdio_func* func,
+	const struct sdio_device_id* id)
 {
 	int ret = 0;
 
@@ -194,7 +198,7 @@ static int bcmsdh_sdmmc_probe(struct sdio_func *func,
 	return ret;
 }
 
-static void bcmsdh_sdmmc_remove(struct sdio_func *func)
+static void bcmsdh_sdmmc_remove(struct sdio_func* func)
 {
 	if (func == NULL) {
 		sd_err(("%s is called with NULL SDIO function pointer\n", __FUNCTION__));
@@ -222,6 +226,7 @@ static const struct sdio_device_id bcmsdh_sdmmc_ids[] = {
 	{ SDIO_DEVICE(SDIO_VENDOR_ID_BROADCOM, SDIO_DEVICE_ID_BROADCOM_4334) },
 	{ SDIO_DEVICE(SDIO_VENDOR_ID_BROADCOM, SDIO_DEVICE_ID_BROADCOM_4324) },
 	{ SDIO_DEVICE(SDIO_VENDOR_ID_BROADCOM, SDIO_DEVICE_ID_BROADCOM_43239) },
+	{ SDIO_DEVICE(SDIO_VENDOR_ID_BROADCOM, SDIO_DEVICE_ID_BROADCOM_43430) },
 	{ SDIO_DEVICE_CLASS(SDIO_CLASS_NONE)		},
 	{ /* end: all zeroes */				},
 };
@@ -229,11 +234,11 @@ static const struct sdio_device_id bcmsdh_sdmmc_ids[] = {
 MODULE_DEVICE_TABLE(sdio, bcmsdh_sdmmc_ids);
 
 #if (LINUX_VERSION_CODE > KERNEL_VERSION(2, 6, 39)) && defined(CONFIG_PM)
-static int bcmsdh_sdmmc_suspend(struct device *pdev)
+static int bcmsdh_sdmmc_suspend(struct device* pdev)
 {
 	int err;
-	sdioh_info_t *sdioh;
-	struct sdio_func *func = dev_to_sdio_func(pdev);
+	sdioh_info_t* sdioh;
+	struct sdio_func* func = dev_to_sdio_func(pdev);
 	mmc_pm_flag_t sdio_flags;
 
 	printf("%s Enter func->num=%d\n", __FUNCTION__, func->num);
@@ -269,12 +274,12 @@ static int bcmsdh_sdmmc_suspend(struct device *pdev)
 	return 0;
 }
 
-static int bcmsdh_sdmmc_resume(struct device *pdev)
+static int bcmsdh_sdmmc_resume(struct device* pdev)
 {
 #if defined(OOB_INTR_ONLY)
-	sdioh_info_t *sdioh;
+	sdioh_info_t* sdioh;
 #endif
-	struct sdio_func *func = dev_to_sdio_func(pdev);
+	struct sdio_func* func = dev_to_sdio_func(pdev);
 
 	printf("%s Enter func->num=%d\n", __FUNCTION__, func->num);
 	if (func->num != 2)
@@ -292,16 +297,16 @@ static int bcmsdh_sdmmc_resume(struct device *pdev)
 }
 
 static const struct dev_pm_ops bcmsdh_sdmmc_pm_ops = {
-	.suspend	= bcmsdh_sdmmc_suspend,
-	.resume		= bcmsdh_sdmmc_resume,
+	.suspend = bcmsdh_sdmmc_suspend,
+	.resume = bcmsdh_sdmmc_resume,
 };
 #endif  /* (LINUX_VERSION_CODE > KERNEL_VERSION(2, 6, 39)) && defined(CONFIG_PM) */
 
 #if defined(BCMLXSDMMC)
-static struct semaphore *notify_semaphore = NULL;
+static struct semaphore* notify_semaphore = NULL;
 
-static int dummy_probe(struct sdio_func *func,
-                              const struct sdio_device_id *id)
+static int dummy_probe(struct sdio_func* func,
+	const struct sdio_device_id* id)
 {
 	if (func && (func->num != 2)) {
 		return 0;
@@ -312,16 +317,16 @@ static int dummy_probe(struct sdio_func *func,
 	return 0;
 }
 
-static void dummy_remove(struct sdio_func *func)
+static void dummy_remove(struct sdio_func* func)
 {
 }
 
 static struct sdio_driver dummy_sdmmc_driver = {
-	.probe		= dummy_probe,
-	.remove		= dummy_remove,
-	.name		= "dummy_sdmmc",
-	.id_table	= bcmsdh_sdmmc_ids,
-	};
+	.probe = dummy_probe,
+	.remove = dummy_remove,
+	.name = "dummy_sdmmc",
+	.id_table = bcmsdh_sdmmc_ids,
+};
 
 int sdio_func_reg_notify(void* semaphore)
 {
@@ -338,25 +343,25 @@ void sdio_func_unreg_notify(void)
 #endif /* defined(BCMLXSDMMC) */
 
 static struct sdio_driver bcmsdh_sdmmc_driver = {
-	.probe		= bcmsdh_sdmmc_probe,
-	.remove		= bcmsdh_sdmmc_remove,
-	.name		= "bcmsdh_sdmmc",
-	.id_table	= bcmsdh_sdmmc_ids,
+	.probe = bcmsdh_sdmmc_probe,
+	.remove = bcmsdh_sdmmc_remove,
+	.name = "bcmsdh_sdmmc",
+	.id_table = bcmsdh_sdmmc_ids,
 #if (LINUX_VERSION_CODE > KERNEL_VERSION(2, 6, 39)) && defined(CONFIG_PM)
 	.drv = {
-	.pm	= &bcmsdh_sdmmc_pm_ops,
+	.pm = &bcmsdh_sdmmc_pm_ops,
 	},
 #endif /* (LINUX_VERSION_CODE > KERNEL_VERSION(2, 6, 39)) && defined(CONFIG_PM) */
 };
 
 struct sdos_info {
-	sdioh_info_t *sd;
+	sdioh_info_t* sd;
 	spinlock_t lock;
 };
 
 /* Interrupt enable/disable */
 SDIOH_API_RC
-sdioh_interrupt_set(sdioh_info_t *sd, bool enable)
+sdioh_interrupt_set(sdioh_info_t* sd, bool enable)
 {
 	if (!sd)
 		return BCME_BADARG;

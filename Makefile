@@ -15,11 +15,11 @@ DHDCFLAGS = -Wall -Wstrict-prototypes -Dlinux -DBCMDRIVER -DSDTEST       \
 	-DDHD_DONOT_FORWARD_BCMEVENT_AS_NETWORK_PKT -DRXFRAME_THREAD          \
 	-DBCMSDIOH_TXGLOM_EXT                                                 \
 	-DENABLE_INSMOD_NO_FW_LOAD                                            \
-	-Idrivers/net/wireless/bcmdhd -Idrivers/net/wireless/bcmdhd/include
+	-I$(src) -I$(src)/include
 
 DHDOFILES = aiutils.o siutils.o sbutils.o bcmutils.o bcmwifi_channels.o \
 	dhd_linux.o dhd_linux_platdev.o dhd_linux_sched.o dhd_pno.o \
-	dhd_common.o dhd_ip.o dhd_linux_wq.o dhd_custom_gpio.o \
+	dhd_common.o dhd_ip.o dhd_linux_wq.o dhd_custom_gpio.o dhd_gpio.o \
 	bcmevent.o hndpmu.o linux_osl.o wldev_common.o wl_android.o \
 	hnd_pktq.o hnd_pktpool.o dhd_config.o
 
@@ -33,13 +33,17 @@ DHDOFILES += bcmsdh.o bcmsdh_linux.o bcmsdh_sdmmc.o bcmsdh_sdmmc_linux.o \
 	dhd_sdio.o dhd_cdc.o dhd_wlfc.o
 
 ifeq ($(CONFIG_BCMDHD_OOB),y)
-DHDCFLAGS += -DOOB_INTR_ONLY -DCUSTOMER_OOB -DHW_OOB
+DHDCFLAGS += -DOOB_INTR_ONLY -DCUSTOMER_OOB -DHW_OOB -DCUSTOMER_HW
 ifeq ($(CONFIG_BCMDHD_DISABLE_WOWLAN),y)
 DHDCFLAGS += -DDISABLE_WOWLAN
 endif
 else
 DHDCFLAGS += -DSDIO_ISR_THREAD
 endif
+endif
+
+ifneq ($(CONFIG_BCMDHD_EXTRA_FLAGS),)
+DHDCFLAGS += -D$(CONFIG_BCMDHD_EXTRA_FLAGS)
 endif
 
 ifneq ($(CONFIG_BCMDHD_PCIE),)
@@ -55,9 +59,9 @@ obj-$(CONFIG_BCMDHD) += bcmdhd.o
 bcmdhd-objs += $(DHDOFILES)
 
 #ifeq ($(CONFIG_ARCH_SUNXI),y)
-DHDOFILES += dhd_gpio.o
-DHDCFLAGS += -DCUSTOMER_HW -DDHD_OF_SUPPORT -DCUSTOMER_HW_ALLWINNER
-DHDCFLAGS += -Iarch/arm/mach-sunxi/include
+#DHDOFILES += dhd_gpio.o
+#DHDCFLAGS += -DCUSTOMER_HW -DDHD_OF_SUPPORT
+#DHDCFLAGS += -Iarch/arm/mach-sunxi/include
 #DHDCFLAGS += -DBCMWAPI_WPI -DBCMWAPI_WAI
 #endif
 

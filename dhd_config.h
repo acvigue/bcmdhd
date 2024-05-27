@@ -23,6 +23,7 @@ extern uint dhd_slpauto;
 #define BCM43362A2_CHIP_REV     1
 #define BCM43430A0_CHIP_REV     0
 #define BCM43430A1_CHIP_REV     1
+#define BCM43436B0_CHIP_REV     2
 #define BCM4330B2_CHIP_REV      4
 #define BCM4334B1_CHIP_REV      3
 #define BCM43341B0_CHIP_REV     2
@@ -45,14 +46,14 @@ typedef struct wl_mac_range {
 /* mac list */
 typedef struct wl_mac_list {
 	int count;
-	wl_mac_range_t *mac;
+	wl_mac_range_t* mac;
 	char name[MOD_PARAM_PATHLEN];		/* path */
 } wl_mac_list_t;
 
 /* mac list head */
 typedef struct wl_mac_list_ctrl {
 	int count;
-	struct wl_mac_list *m_mac_list_head;
+	struct wl_mac_list* m_mac_list_head;
 } wl_mac_list_ctrl_t;
 
 /* chip_nv_path */
@@ -65,7 +66,7 @@ typedef struct wl_chip_nv_path {
 /* chip_nv_path list head */
 typedef struct wl_chip_nv_path_list_ctrl {
 	int count;
-	struct wl_chip_nv_path *m_chip_nv_path_head;
+	struct wl_chip_nv_path* m_chip_nv_path_head;
 } wl_chip_nv_path_list_ctrl_t;
 
 /* channel list */
@@ -182,45 +183,45 @@ typedef struct dhd_conf {
 } dhd_conf_t;
 
 #ifdef BCMSDIO
-int dhd_conf_get_mac(dhd_pub_t *dhd, bcmsdh_info_t *sdh, uint8 *mac);
-void dhd_conf_set_fw_name_by_mac(dhd_pub_t *dhd, bcmsdh_info_t *sdh, char *fw_path);
-void dhd_conf_set_nv_name_by_mac(dhd_pub_t *dhd, bcmsdh_info_t *sdh, char *nv_path);
+int dhd_conf_get_mac(dhd_pub_t* dhd, bcmsdh_info_t* sdh, uint8* mac);
+void dhd_conf_set_fw_name_by_mac(dhd_pub_t* dhd, bcmsdh_info_t* sdh, char* fw_path);
+void dhd_conf_set_nv_name_by_mac(dhd_pub_t* dhd, bcmsdh_info_t* sdh, char* nv_path);
 #if defined(HW_OOB) || defined(FORCE_WOWLAN)
-void dhd_conf_set_hw_oob_intr(bcmsdh_info_t *sdh, uint chip);
+void dhd_conf_set_hw_oob_intr(bcmsdh_info_t* sdh, uint chip);
 #endif
-void dhd_conf_set_txglom_params(dhd_pub_t *dhd, bool enable);
+void dhd_conf_set_txglom_params(dhd_pub_t* dhd, bool enable);
 #endif
-void dhd_conf_set_fw_name_by_chip(dhd_pub_t *dhd, char *fw_path);
-void dhd_conf_set_nv_name_by_chip(dhd_pub_t *dhd, char *nv_path);
-void dhd_conf_set_conf_path_by_nv_path(dhd_pub_t *dhd, char *conf_path, char *nv_path);
+void dhd_conf_set_fw_name_by_chip(dhd_pub_t* dhd, char* fw_path);
+void dhd_conf_set_nv_name_by_chip(dhd_pub_t* dhd, char* nv_path);
+void dhd_conf_set_conf_path_by_nv_path(dhd_pub_t* dhd, char* conf_path, char* nv_path);
 #ifdef CONFIG_PATH_AUTO_SELECT
-void dhd_conf_set_conf_name_by_chip(dhd_pub_t *dhd, char *conf_path);
+void dhd_conf_set_conf_name_by_chip(dhd_pub_t* dhd, char* conf_path);
 #endif
-int dhd_conf_set_fw_int_cmd(dhd_pub_t *dhd, char *name, uint cmd, int val, int def, bool down);
-int dhd_conf_set_fw_string_cmd(dhd_pub_t *dhd, char *cmd, int val, int def, bool down);
-uint dhd_conf_get_band(dhd_pub_t *dhd);
-int dhd_conf_set_country(dhd_pub_t *dhd);
-int dhd_conf_get_country(dhd_pub_t *dhd, wl_country_t *cspec);
-int dhd_conf_get_country_from_config(dhd_pub_t *dhd, wl_country_t *cspec);
-int dhd_conf_fix_country(dhd_pub_t *dhd);
-bool dhd_conf_match_channel(dhd_pub_t *dhd, uint32 channel);
-int dhd_conf_set_roam(dhd_pub_t *dhd);
-void dhd_conf_set_bw_cap(dhd_pub_t *dhd);
-void dhd_conf_get_wme(dhd_pub_t *dhd, edcf_acparam_t *acp);
-void dhd_conf_set_wme(dhd_pub_t *dhd);
-void dhd_conf_add_pkt_filter(dhd_pub_t *dhd);
-bool dhd_conf_del_pkt_filter(dhd_pub_t *dhd, uint32 id);
-void dhd_conf_discard_pkt_filter(dhd_pub_t *dhd);
-void dhd_conf_set_disable_proptx(dhd_pub_t *dhd);
-int dhd_conf_read_config(dhd_pub_t *dhd, char *conf_path);
-int dhd_conf_set_chiprev(dhd_pub_t *dhd, uint chip, uint chiprev);
-uint dhd_conf_get_chip(void *context);
-uint dhd_conf_get_chiprev(void *context);
-int dhd_conf_get_pm(dhd_pub_t *dhd);
-int dhd_conf_preinit(dhd_pub_t *dhd);
-int dhd_conf_reset(dhd_pub_t *dhd);
-int dhd_conf_attach(dhd_pub_t *dhd);
-void dhd_conf_detach(dhd_pub_t *dhd);
-void *dhd_get_pub(struct net_device *dev);
+int dhd_conf_set_fw_int_cmd(dhd_pub_t* dhd, char* name, uint cmd, int val, int def, bool down);
+int dhd_conf_set_fw_string_cmd(dhd_pub_t* dhd, char* cmd, int val, int def, bool down);
+uint dhd_conf_get_band(dhd_pub_t* dhd);
+int dhd_conf_set_country(dhd_pub_t* dhd);
+int dhd_conf_get_country(dhd_pub_t* dhd, wl_country_t* cspec);
+int dhd_conf_get_country_from_config(dhd_pub_t* dhd, wl_country_t* cspec);
+int dhd_conf_fix_country(dhd_pub_t* dhd);
+bool dhd_conf_match_channel(dhd_pub_t* dhd, uint32 channel);
+int dhd_conf_set_roam(dhd_pub_t* dhd);
+void dhd_conf_set_bw_cap(dhd_pub_t* dhd);
+void dhd_conf_get_wme(dhd_pub_t* dhd, edcf_acparam_t* acp);
+void dhd_conf_set_wme(dhd_pub_t* dhd);
+void dhd_conf_add_pkt_filter(dhd_pub_t* dhd);
+bool dhd_conf_del_pkt_filter(dhd_pub_t* dhd, uint32 id);
+void dhd_conf_discard_pkt_filter(dhd_pub_t* dhd);
+void dhd_conf_set_disable_proptx(dhd_pub_t* dhd);
+int dhd_conf_read_config(dhd_pub_t* dhd, char* conf_path);
+int dhd_conf_set_chiprev(dhd_pub_t* dhd, uint chip, uint chiprev);
+uint dhd_conf_get_chip(void* context);
+uint dhd_conf_get_chiprev(void* context);
+int dhd_conf_get_pm(dhd_pub_t* dhd);
+int dhd_conf_preinit(dhd_pub_t* dhd);
+int dhd_conf_reset(dhd_pub_t* dhd);
+int dhd_conf_attach(dhd_pub_t* dhd);
+void dhd_conf_detach(dhd_pub_t* dhd);
+void* dhd_get_pub(struct net_device* dev);
 
 #endif /* _dhd_config_ */

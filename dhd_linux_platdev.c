@@ -28,7 +28,7 @@
 
 #if defined(CUSTOMER_HW)
 extern int dhd_wlan_init_plat_data(void);
-extern void dhd_wlan_deinit_plat_data(wifi_adapter_info_t *adapter);
+extern void dhd_wlan_deinit_plat_data(wifi_adapter_info_t* adapter);
 #endif /* CUSTOMER_HW */
 
 #define WIFI_PLAT_NAME		"bcmdhd_wlan"
@@ -36,11 +36,11 @@ extern void dhd_wlan_deinit_plat_data(wifi_adapter_info_t *adapter);
 #define WIFI_PLAT_EXT		"bcmdhd_wifi_platform"
 
 #ifdef CONFIG_DTS
-struct regulator *wifi_regulator = NULL;
+struct regulator* wifi_regulator = NULL;
 #endif /* CONFIG_DTS */
 
 bool cfg_multichip = FALSE;
-bcmdhd_wifi_platdata_t *dhd_wifi_platdata = NULL;
+bcmdhd_wifi_platdata_t* dhd_wifi_platdata = NULL;
 static int wifi_plat_dev_probe_ret = 0;
 static bool is_power_on = FALSE;
 #if !defined(CONFIG_DTS)
@@ -50,7 +50,7 @@ extern struct resource dhd_wlan_resources;
 extern struct wifi_platform_data dhd_wlan_control;
 #else
 static bool dts_enabled = FALSE;
-struct resource dhd_wlan_resources = {0};
+struct resource dhd_wlan_resources = { 0 };
 extern struct wifi_platform_data dhd_wlan_control;
 #endif /* !defind(DHD_OF_SUPPORT) */
 #endif /* !defind(CONFIG_DTS) */
@@ -62,7 +62,7 @@ extern void* wl_cfg80211_get_dhdp(void);
 #ifdef ENABLE_4335BT_WAR
 extern int bcm_bt_lock(int cookie);
 extern void bcm_bt_unlock(int cookie);
-static int lock_cookie_wifi = 'W' | 'i'<<8 | 'F'<<16 | 'i'<<24;	/* cookie is "WiFi" */
+static int lock_cookie_wifi = 'W' | 'i' << 8 | 'F' << 16 | 'i' << 24;	/* cookie is "WiFi" */
 #endif /* ENABLE_4335BT_WAR */
 
 wifi_adapter_info_t* dhd_wifi_platform_get_adapter(uint32 bus_type, uint32 bus_num, uint32 slot_num)
@@ -73,7 +73,7 @@ wifi_adapter_info_t* dhd_wifi_platform_get_adapter(uint32 bus_type, uint32 bus_n
 		return NULL;
 
 	for (i = 0; i < dhd_wifi_platdata->num_adapters; i++) {
-		wifi_adapter_info_t *adapter = &dhd_wifi_platdata->adapters[i];
+		wifi_adapter_info_t* adapter = &dhd_wifi_platdata->adapters[i];
 		if ((adapter->bus_type == -1 || adapter->bus_type == bus_type) &&
 			(adapter->bus_num == -1 || adapter->bus_num == bus_num) &&
 			(adapter->slot_num == -1 || adapter->slot_num == slot_num)) {
@@ -84,10 +84,10 @@ wifi_adapter_info_t* dhd_wifi_platform_get_adapter(uint32 bus_type, uint32 bus_n
 	return NULL;
 }
 
-void* wifi_platform_prealloc(wifi_adapter_info_t *adapter, int section, unsigned long size)
+void* wifi_platform_prealloc(wifi_adapter_info_t* adapter, int section, unsigned long size)
 {
-	void *alloc_ptr = NULL;
-	struct wifi_platform_data *plat_data;
+	void* alloc_ptr = NULL;
+	struct wifi_platform_data* plat_data;
 
 	if (!adapter || !adapter->wifi_plat_data)
 		return NULL;
@@ -100,16 +100,17 @@ void* wifi_platform_prealloc(wifi_adapter_info_t *adapter, int section, unsigned
 				bzero(alloc_ptr, size);
 			return alloc_ptr;
 		}
-	} else
+	}
+	else
 		return NULL;
 
 	DHD_ERROR(("%s: failed to alloc static mem section %d\n", __FUNCTION__, section));
 	return NULL;
 }
 
-void* wifi_platform_get_prealloc_func_ptr(wifi_adapter_info_t *adapter)
+void* wifi_platform_get_prealloc_func_ptr(wifi_adapter_info_t* adapter)
 {
-	struct wifi_platform_data *plat_data;
+	struct wifi_platform_data* plat_data;
 
 	if (!adapter || !adapter->wifi_plat_data)
 		return NULL;
@@ -117,7 +118,7 @@ void* wifi_platform_get_prealloc_func_ptr(wifi_adapter_info_t *adapter)
 	return plat_data->mem_prealloc;
 }
 
-int wifi_platform_get_irq_number(wifi_adapter_info_t *adapter, unsigned long *irq_flags_ptr)
+int wifi_platform_get_irq_number(wifi_adapter_info_t* adapter, unsigned long* irq_flags_ptr)
 {
 	if (adapter == NULL)
 		return -1;
@@ -126,7 +127,7 @@ int wifi_platform_get_irq_number(wifi_adapter_info_t *adapter, unsigned long *ir
 	return adapter->irq_num;
 }
 
-int wifi_platform_set_power(wifi_adapter_info_t *adapter, bool on, unsigned long msec)
+int wifi_platform_set_power(wifi_adapter_info_t* adapter, bool on, unsigned long msec)
 {
 	int err = 0;
 #ifdef CONFIG_DTS
@@ -141,7 +142,7 @@ int wifi_platform_set_power(wifi_adapter_info_t *adapter, bool on, unsigned long
 	if (err < 0)
 		DHD_ERROR(("%s: regulator enable/disable failed", __FUNCTION__));
 #else
-	struct wifi_platform_data *plat_data;
+	struct wifi_platform_data* plat_data;
 
 	if (!adapter || !adapter->wifi_plat_data)
 		return -EINVAL;
@@ -182,10 +183,10 @@ int wifi_platform_set_power(wifi_adapter_info_t *adapter, bool on, unsigned long
 	return err;
 }
 
-int wifi_platform_bus_enumerate(wifi_adapter_info_t *adapter, bool device_present)
+int wifi_platform_bus_enumerate(wifi_adapter_info_t* adapter, bool device_present)
 {
 	int err = 0;
-	struct wifi_platform_data *plat_data;
+	struct wifi_platform_data* plat_data;
 
 	if (!adapter || !adapter->wifi_plat_data)
 		return -EINVAL;
@@ -199,9 +200,9 @@ int wifi_platform_bus_enumerate(wifi_adapter_info_t *adapter, bool device_presen
 
 }
 
-int wifi_platform_get_mac_addr(wifi_adapter_info_t *adapter, unsigned char *buf)
+int wifi_platform_get_mac_addr(wifi_adapter_info_t* adapter, unsigned char* buf)
 {
-	struct wifi_platform_data *plat_data;
+	struct wifi_platform_data* plat_data;
 
 	DHD_ERROR(("%s\n", __FUNCTION__));
 	if (!buf || !adapter || !adapter->wifi_plat_data)
@@ -213,11 +214,11 @@ int wifi_platform_get_mac_addr(wifi_adapter_info_t *adapter, unsigned char *buf)
 	return -EOPNOTSUPP;
 }
 
-void *wifi_platform_get_country_code(wifi_adapter_info_t *adapter, char *ccode)
+void* wifi_platform_get_country_code(wifi_adapter_info_t* adapter, char* ccode)
 {
 	/* get_country_code was added after 2.6.39 */
 #if	(LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 39))
-	struct wifi_platform_data *plat_data;
+	struct wifi_platform_data* plat_data;
 
 	if (!ccode || !adapter || !adapter->wifi_plat_data)
 		return NULL;
@@ -233,10 +234,10 @@ void *wifi_platform_get_country_code(wifi_adapter_info_t *adapter, char *ccode)
 }
 
 #ifndef CUSTOMER_HW
-static int wifi_plat_dev_drv_probe(struct platform_device *pdev)
+static int wifi_plat_dev_drv_probe(struct platform_device* pdev)
 {
-	struct resource *resource;
-	wifi_adapter_info_t *adapter;
+	struct resource* resource;
+	wifi_adapter_info_t* adapter;
 #ifdef CONFIG_DTS
 	int irq, gpio;
 #endif /* CONFIG_DTS */
@@ -247,7 +248,7 @@ static int wifi_plat_dev_drv_probe(struct platform_device *pdev)
 	ASSERT(dhd_wifi_platdata != NULL);
 	ASSERT(dhd_wifi_platdata->num_adapters == 1);
 	adapter = &dhd_wifi_platdata->adapters[0];
-	adapter->wifi_plat_data = (struct wifi_platform_data *)(pdev->dev.platform_data);
+	adapter->wifi_plat_data = (struct wifi_platform_data*)(pdev->dev.platform_data);
 
 	resource = platform_get_resource_byname(pdev, IORESOURCE_IRQ, "bcmdhd_wlan_irq");
 	if (resource == NULL)
@@ -287,9 +288,9 @@ static int wifi_plat_dev_drv_probe(struct platform_device *pdev)
 	return wifi_plat_dev_probe_ret;
 }
 
-static int wifi_plat_dev_drv_remove(struct platform_device *pdev)
+static int wifi_plat_dev_drv_remove(struct platform_device* pdev)
 {
-	wifi_adapter_info_t *adapter;
+	wifi_adapter_info_t* adapter;
 
 	/* Android style wifi platform data device ("bcmdhd_wlan" or "bcm4329_wlan")
 	 * is kept for backward compatibility and supports only 1 adapter
@@ -313,7 +314,7 @@ static int wifi_plat_dev_drv_remove(struct platform_device *pdev)
 	return 0;
 }
 
-static int wifi_plat_dev_drv_suspend(struct platform_device *pdev, pm_message_t state)
+static int wifi_plat_dev_drv_suspend(struct platform_device* pdev, pm_message_t state)
 {
 	DHD_TRACE(("##> %s\n", __FUNCTION__));
 #if (LINUX_VERSION_CODE <= KERNEL_VERSION(2, 6, 39)) && defined(OOB_INTR_ONLY) && \
@@ -323,7 +324,7 @@ static int wifi_plat_dev_drv_suspend(struct platform_device *pdev, pm_message_t 
 	return 0;
 }
 
-static int wifi_plat_dev_drv_resume(struct platform_device *pdev)
+static int wifi_plat_dev_drv_resume(struct platform_device* pdev)
 {
 	DHD_TRACE(("##> %s\n", __FUNCTION__));
 #if (LINUX_VERSION_CODE <= KERNEL_VERSION(2, 6, 39)) && defined(OOB_INTR_ONLY) && \
@@ -336,18 +337,18 @@ static int wifi_plat_dev_drv_resume(struct platform_device *pdev)
 
 #ifdef CONFIG_DTS
 static const struct of_device_id wifi_device_dt_match[] = {
-	{ .compatible = "android,bcmdhd_wlan", },
+	{.compatible = "android,bcmdhd_wlan", },
 	{},
 };
 #endif /* CONFIG_DTS */
 
 static struct platform_driver wifi_platform_dev_driver = {
-	.probe          = wifi_plat_dev_drv_probe,
-	.remove         = wifi_plat_dev_drv_remove,
-	.suspend        = wifi_plat_dev_drv_suspend,
-	.resume         = wifi_plat_dev_drv_resume,
-	.driver         = {
-	.name   = WIFI_PLAT_NAME,
+	.probe = wifi_plat_dev_drv_probe,
+	.remove = wifi_plat_dev_drv_remove,
+	.suspend = wifi_plat_dev_drv_suspend,
+	.resume = wifi_plat_dev_drv_resume,
+	.driver = {
+	.name = WIFI_PLAT_NAME,
 #ifdef CONFIG_DTS
 	.of_match_table = wifi_device_dt_match,
 #endif /* CONFIG_DTS */
@@ -355,19 +356,19 @@ static struct platform_driver wifi_platform_dev_driver = {
 };
 
 static struct platform_driver wifi_platform_dev_driver_legacy = {
-	.probe          = wifi_plat_dev_drv_probe,
-	.remove         = wifi_plat_dev_drv_remove,
-	.suspend        = wifi_plat_dev_drv_suspend,
-	.resume         = wifi_plat_dev_drv_resume,
-	.driver         = {
-	.name	= WIFI_PLAT_NAME2,
+	.probe = wifi_plat_dev_drv_probe,
+	.remove = wifi_plat_dev_drv_remove,
+	.suspend = wifi_plat_dev_drv_suspend,
+	.resume = wifi_plat_dev_drv_resume,
+	.driver = {
+	.name = WIFI_PLAT_NAME2,
 	}
 };
 
-static int wifi_platdev_match(struct device *dev, void *data)
+static int wifi_platdev_match(struct device* dev, void* data)
 {
-	char *name = (char*)data;
-	struct platform_device *pdev = to_platform_device(dev);
+	char* name = (char*)data;
+	struct platform_device* pdev = to_platform_device(dev);
 
 	if (strcmp(pdev->name, name) == 0) {
 		DHD_ERROR(("found wifi platform device %s\n", name));
@@ -380,11 +381,12 @@ static int wifi_platdev_match(struct device *dev, void *data)
 
 static int wifi_ctrlfunc_register_drv(void)
 {
-	wifi_adapter_info_t *adapter;
+	printf("%s: enter\n", __FUNCTION__);
+	wifi_adapter_info_t* adapter;
 
 #ifndef CUSTOMER_HW
 	int err = 0;
-	struct device *dev1, *dev2;
+	struct device* dev1, * dev2;
 	dev1 = bus_find_device(&platform_bus_type, NULL, WIFI_PLAT_NAME, wifi_platdev_match);
 	dev2 = bus_find_device(&platform_bus_type, NULL, WIFI_PLAT_NAME2, wifi_platdev_match);
 #endif
@@ -401,6 +403,7 @@ static int wifi_ctrlfunc_register_drv(void)
 	/* multi-chip support not enabled, build one adapter information for
 	 * DHD (either SDIO, USB or PCIe)
 	 */
+	printf("%s: building adapter\n", __FUNCTION__);
 	adapter = kzalloc(sizeof(wifi_adapter_info_t), GFP_KERNEL);
 	if (adapter == NULL) {
 		DHD_ERROR(("%s:adapter alloc failed", __FUNCTION__));
@@ -438,8 +441,8 @@ static int wifi_ctrlfunc_register_drv(void)
 
 #if !defined(CONFIG_DTS)
 	if (dts_enabled) {
-		struct resource *resource;
-		adapter->wifi_plat_data = (void *)&dhd_wlan_control;
+		struct resource* resource;
+		adapter->wifi_plat_data = (void*)&dhd_wlan_control;
 		resource = &dhd_wlan_resources;
 #ifdef CUSTOMER_HW
 		dhd_wlan_init_plat_data();
@@ -461,14 +464,14 @@ static int wifi_ctrlfunc_register_drv(void)
 
 void wifi_ctrlfunc_unregister_drv(void)
 {
-	wifi_adapter_info_t *adapter;
+	wifi_adapter_info_t* adapter;
 
 #if defined(CONFIG_DTS) && !defined(CUSTOMER_HW)
 	DHD_ERROR(("unregister wifi platform drivers\n"));
 	platform_driver_unregister(&wifi_platform_dev_driver);
 #else
 #ifndef CUSTOMER_HW
-	struct device *dev1, *dev2;
+	struct device* dev1, * dev2;
 	dev1 = bus_find_device(&platform_bus_type, NULL, WIFI_PLAT_NAME, wifi_platdev_match);
 	dev2 = bus_find_device(&platform_bus_type, NULL, WIFI_PLAT_NAME2, wifi_platdev_match);
 	if (!dts_enabled)
@@ -503,17 +506,17 @@ void wifi_ctrlfunc_unregister_drv(void)
 }
 
 #ifndef CUSTOMER_HW
-static int bcmdhd_wifi_plat_dev_drv_probe(struct platform_device *pdev)
+static int bcmdhd_wifi_plat_dev_drv_probe(struct platform_device* pdev)
 {
-	dhd_wifi_platdata = (bcmdhd_wifi_platdata_t *)(pdev->dev.platform_data);
+	dhd_wifi_platdata = (bcmdhd_wifi_platdata_t*)(pdev->dev.platform_data);
 
 	return dhd_wifi_platform_load();
 }
 
-static int bcmdhd_wifi_plat_dev_drv_remove(struct platform_device *pdev)
+static int bcmdhd_wifi_plat_dev_drv_remove(struct platform_device* pdev)
 {
 	int i;
-	wifi_adapter_info_t *adapter;
+	wifi_adapter_info_t* adapter;
 	ASSERT(dhd_wifi_platdata != NULL);
 
 	/* power down all adapters */
@@ -526,19 +529,20 @@ static int bcmdhd_wifi_plat_dev_drv_remove(struct platform_device *pdev)
 }
 
 static struct platform_driver dhd_wifi_platform_dev_driver = {
-	.probe          = bcmdhd_wifi_plat_dev_drv_probe,
-	.remove         = bcmdhd_wifi_plat_dev_drv_remove,
-	.driver         = {
-	.name   = WIFI_PLAT_EXT,
+	.probe = bcmdhd_wifi_plat_dev_drv_probe,
+	.remove = bcmdhd_wifi_plat_dev_drv_remove,
+	.driver = {
+	.name = WIFI_PLAT_EXT,
 	}
 };
 #endif
 
 int dhd_wifi_platform_register_drv(void)
 {
+	printf("%s: enter\n", __FUNCTION__);
 	int err = 0;
 #ifndef CUSTOMER_HW
-	struct device *dev;
+	struct device* dev;
 
 	/* register Broadcom wifi platform data driver if multi-chip is enabled,
 	 * otherwise use Android style wifi platform data (aka wifi control function)
@@ -554,7 +558,8 @@ int dhd_wifi_platform_register_drv(void)
 			return -ENXIO;
 		}
 		err = platform_driver_register(&dhd_wifi_platform_dev_driver);
-	} else
+	}
+	else
 #endif
 	{
 		err = wifi_ctrlfunc_register_drv();
@@ -564,7 +569,8 @@ int dhd_wifi_platform_register_drv(void)
 			if (err == -ENXIO) {
 				/* wifi ctrl function does not exist */
 				err = dhd_wifi_platform_load();
-			} else {
+			}
+			else {
 				/* unregister driver due to initialization failure */
 				wifi_ctrlfunc_unregister_drv();
 			}
@@ -579,14 +585,15 @@ static int dhd_wifi_platform_load_pcie(void)
 {
 	int err = 0;
 	int i;
-	wifi_adapter_info_t *adapter;
+	wifi_adapter_info_t* adapter;
 
 	BCM_REFERENCE(i);
 	BCM_REFERENCE(adapter);
 
 	if (dhd_wifi_platdata == NULL) {
 		err = dhd_bus_register();
-	} else {
+	}
+	else {
 		if (dhd_download_fw_on_driverload) {
 			/* power up all adapters */
 			for (i = 0; i < dhd_wifi_platdata->num_adapters; i++) {
@@ -611,7 +618,8 @@ static int dhd_wifi_platform_load_pcie(void)
 						wifi_platform_set_power(adapter,
 							FALSE, WIFI_TURNOFF_DELAY);
 						continue;
-					} else {
+					}
+					else {
 						err = wifi_platform_bus_enumerate(adapter, TRUE);
 						if (err) {
 							DHD_ERROR(("failed to enumerate bus %s, "
@@ -619,7 +627,8 @@ static int dhd_wifi_platform_load_pcie(void)
 								adapter->name, retry));
 							wifi_platform_set_power(adapter, FALSE,
 								WIFI_TURNOFF_DELAY);
-						} else {
+						}
+						else {
 							break;
 						}
 					}
@@ -681,7 +690,7 @@ static int dhd_wifi_platform_load_sdio(void)
 {
 	int i;
 	int err = 0;
-	wifi_adapter_info_t *adapter;
+	wifi_adapter_info_t* adapter;
 
 	BCM_REFERENCE(i);
 	BCM_REFERENCE(adapter);
@@ -727,7 +736,8 @@ static int dhd_wifi_platform_load_sdio(void)
 				/* WL_REG_ON state unknown, Power off forcely */
 				wifi_platform_set_power(adapter, FALSE, WIFI_TURNOFF_DELAY);
 				continue;
-			} else {
+			}
+			else {
 				wifi_platform_bus_enumerate(adapter, TRUE);
 				err = 0;
 			}
