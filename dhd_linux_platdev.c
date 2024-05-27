@@ -440,17 +440,15 @@ static int wifi_ctrlfunc_register_drv(void)
 #endif
 
 #if !defined(CONFIG_DTS)
-	if (dts_enabled) {
-		struct resource* resource;
-		adapter->wifi_plat_data = (void*)&dhd_wlan_control;
-		resource = &dhd_wlan_resources;
+	struct resource* resource;
+	adapter->wifi_plat_data = (void*)&dhd_wlan_control;
+	resource = &dhd_wlan_resources;
 #ifdef CUSTOMER_HW
-		dhd_wlan_init_plat_data();
+	dhd_wlan_init_plat_data();
 #endif
-		adapter->irq_num = resource->start;
-		adapter->intr_flags = resource->flags & IRQF_TRIGGER_MASK;
-		wifi_plat_dev_probe_ret = dhd_wifi_platform_load();
-	}
+	adapter->irq_num = resource->start;
+	adapter->intr_flags = resource->flags & IRQF_TRIGGER_MASK;
+	wifi_plat_dev_probe_ret = dhd_wifi_platform_load();
 #endif /* !defined(CONFIG_DTS) */
 
 
