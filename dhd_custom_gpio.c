@@ -12,6 +12,7 @@
 #include <dngl_stats.h>
 #include <dhd.h>
 #include <dhd_linux.h>
+#include <linux/gpio.h>
 
 #include <wlioctl.h>
 #include <wl_iw.h>
