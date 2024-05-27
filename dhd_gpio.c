@@ -211,7 +211,7 @@ int dhd_wlan_init_gpio(void)
 	host_oob_irq = gpio_to_irq(gpio_wl_host_wake);
 	printf("%s: host_oob_irq: %d\n", __FUNCTION__, host_oob_irq);
 
-	host_oob_irq_flags = 0x4 | 0x10 | 0x400;
+	host_oob_irq_flags = 0x414;
 
 	dhd_wlan_resources[0].flags = host_oob_irq_flags;
 	printf("%s: host_oob_irq_flags=0x%x\n", __FUNCTION__, host_oob_irq_flags);
